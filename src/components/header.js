@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import coffee from '../assets/coffee.webp';
+import { FlexRow } from '../theme/defaultStyles';
 
 import Navbar from './nav';
 
@@ -9,19 +10,11 @@ const StyledMain = styled.main`
     height: 90vh;
     background: rgba(155, 54, 5, 0.9);
     margin-top: 5%;
-
-    display: flex;
-    flex-flow: row wrap;
-    align-content: center;
-    justify-content: center;
+    ${FlexRow}
 
     .header-hero{
         width: 75%;
-        display: flex;
-        flex-flow: row wrap;
-        align-content: center;
-        justify-content: center; 
-        /* border: 1px solid black; */
+        ${FlexRow} 
     }
 
     .header-hero h1{
@@ -48,7 +41,7 @@ const StyledMain = styled.main`
 const Header = () => {
     return (
         <React.Fragment>
-            <Navbar />
+            {/* <Navbar /> */}
             <StyledMain>
                 <div className="header-hero">
                     <img src={coffee} />
