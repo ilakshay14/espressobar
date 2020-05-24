@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
-import Layout from './containers/Layout/Layout';
+import React from 'react';
 
-class App extends Component {
-    render() {
-        return (
-            <div>
-                <Layout />
-            </div>
-        );
-    }
+import Header from './components/header';
+import StyledSection from './theme/styledSection';
+
+const App = () => {
+
+    return (
+        <div>
+            <StyledSection>
+                <Header />
+            </StyledSection>
+        </div>
+    );
+
 }
 
 export default App;

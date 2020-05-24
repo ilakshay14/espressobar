@@ -30,6 +30,48 @@
     margin-left: 5%;
 }
 
+input{
+    width: 205px;
+    /* height: 60px; */
+    align-self: center;
+    margin-bottom: 5%;
+    background: #FFFFFF;
+    border: 1px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 25px;
+    
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+    outline: none;
+}
+
+input[type=time]::-webkit-datetime-edit-hour-field, input[type=time]::-webkit-datetime-edit-minute-field {
+  border-radius: 15%;
+  padding: 19px 13px;
+  outline: none;
+}
+
+input[type=time]::-webkit-datetime-edit-hour-field:focus,  input[type=time]::-webkit-datetime-edit-minute-field:focus {
+    background-color: transparent;
+    color: black;
+    text-decoration: underline;
+
+}
+
+
+/* 'X' button for resetting/clearing time */
+input[type=time]::-webkit-clear-button {
+  font-size: small;
+  padding-right: 10px;
+}
+
+
+input[type=time]::-webkit-inner-spin-button {
+  /* styles for your arrows */
+}
+
+
+
 
 
 
