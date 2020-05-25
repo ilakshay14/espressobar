@@ -27,6 +27,7 @@ const StyledCoffeehouse = styled.div`
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         margin: 0 auto;
         margin-top: -20%;
+        margin-bottom: 5%;
 
         h1 {
             font-weight: bold;

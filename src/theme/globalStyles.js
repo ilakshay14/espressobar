@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
         color: #000000;
         font-family: 'Muli', sans-serif;
         font-size: 100%;
+        background-color: #FAF7F7;
     }
 
     * {
@@ -20,6 +21,17 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         color: #000000;
     }
+
+    ::-webkit-scrollbar{
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb{
+        background: rgba(0,0,0, 0.75);  
+        border-radius: 8px;
+    }
+
+    
 `;
 
 export default GlobalStyle;

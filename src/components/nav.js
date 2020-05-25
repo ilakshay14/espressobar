@@ -1,5 +1,6 @@
 import React from 'react';
 import StyledNav from '../styles/styledNav';
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (<StyledNav>
@@ -8,9 +9,9 @@ const Navbar = () => {
         </div>
         <div className="navmenu">
             <ul>
-                <li><a href="#coffeehouse">coffeehouse</a></li>
-                <li><a>coffee</a></li>
-                <li><a>menu</a></li>
+                <li><Link to="/">coffeehouse</Link></li>
+                {/* <li><a href="#coffee">coffee</a></li> */}
+                <li><Link to="/menu">menu</Link></li>
             </ul>
         </div>
 
