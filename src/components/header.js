@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import coffee from '../assets/coffee.webp';
 import { FlexRow } from '../theme/defaultStyles';
 
-import Navbar from './nav';
-
 const StyledMain = styled.main`
     width: 100%;
     height: 90vh;
@@ -41,8 +39,7 @@ const StyledMain = styled.main`
 const Header = () => {
     return (
         <React.Fragment>
-            {/* <Navbar /> */}
-            <StyledMain>
+            <StyledMain id="home">
                 <div className="header-hero">
                     <img src={coffee} />
                     <div className="header-hero-text">

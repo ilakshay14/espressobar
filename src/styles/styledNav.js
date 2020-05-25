@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FlexRow } from './defaultStyles';
+import { FlexRow } from '../theme/defaultStyles';
 
 const StyledNav = styled.nav`
     width: 100%;
@@ -51,7 +51,7 @@ const StyledNav = styled.nav`
         cursor: pointer;
         
         a {
-            padding: 15px;
+            padding: 15px;            
             transition: box-shadow 0.2s, padding-bottom 0.2s;
         }
 
