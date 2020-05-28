@@ -3,7 +3,7 @@ import { FlexRow, FlexColumn } from '../theme/defaultStyles';
 
 
 const StyledMenu = styled.div`
-    height: 85vh;
+    height: 100vh;
     margin-top: 5%;
     ${FlexRow};
 
@@ -11,7 +11,7 @@ const StyledMenu = styled.div`
         width: 100%;
         flex: 0 0 15%;
         /* border: 1px solid black; */
-        height: 100%;
+        height: 90%;
         padding: 2%;
         ${FlexColumn}
         justify-content: space-evenly;
@@ -29,7 +29,6 @@ const StyledMenu = styled.div`
                 transform: translateX(5px);
             }
             
-        
             h2{
                 
                 line-height: 45px;
@@ -52,29 +51,34 @@ const StyledMenu = styled.div`
     }
 
     .menudisplay{
-        height: 100%;
+        margin: auto;
+        height: auto;
         padding: 2%;
         flex: 0 0 75%;
 
-        ${FlexColumn}
-        /* justify-content: space-evenly; */
-        align-items: center;
+        ${FlexRow}
+        /*  */
+        .menu-home{
+            ${FlexColumn}
+            align-items:center;
+            justify-content: space-evenly;
 
-        h1{
-            margin-top: -10%;
-            font-weight: bold;
-            font-size: 64px;
-            line-height: 80px;
-            letter-spacing: 0.25em;
-        }
+            h1{
+                margin-top: -50%;
+                font-weight: bold;
+                font-size: 64px;
+                line-height: 80px;
+                letter-spacing: 0.25em;
+            }
 
-        h2{
-            margin-top: 5%;
-            font-weight: bold;
-            font-size: 250%;
-            line-height: 60px;
-            text-align: center;
-            letter-spacing: 0.05em;
+            h2{
+                margin-top: 5%;
+                font-weight: bold;
+                font-size: 200%;
+                line-height: 60px;
+                text-align: center;
+                letter-spacing: 0.05em;
+            }
         }
     }
 

@@ -39,10 +39,10 @@ const Menu = () => {
                 <Switch>
                     <Route path='/menu/sides' exact component={Sides} />
                     <Route path='/menu' exact render={() => (
-                        <>
+                        <div className="menu-home">
                             <h1>MENU</h1>
                             <h2>Have a look at our delicious menu,<br />before you hop over!</h2>
-                        </>
+                        </div>
                     )} />
 
                 </Switch>
