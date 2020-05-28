@@ -2,6 +2,7 @@ import React from 'react';
 import StyledMenu from '../styles/syledMenu';
 import { Route, Link, Switch } from 'react-router-dom'
 import Sides from './sides';
+import Anchor from '../common/anchor';
 
 const Menu = () => {
     return (
@@ -10,23 +11,23 @@ const Menu = () => {
 
                 <div className="menubar-options">
                     <h2>The Basic - Cold</h2>
-                    <h4><a>Iced Espresso</a></h4>
-                    <h4><a>Cold Brew</a></h4>
-                    <h4><a>Iced Americano</a></h4>
+                    <h4><Anchor>Iced Espresso</Anchor></h4>
+                    <h4><Anchor>Cold Brew</Anchor></h4>
+                    <h4><Anchor>Iced Americano</Anchor></h4>
                 </div>
 
                 <div className="menubar-options">
                     <h2>The Basic - Hot</h2>
-                    <h4><a>Espresso - Single</a></h4>
-                    <h4><a>Espresso - Double</a></h4>
-                    <h4><a>Americano</a></h4>
+                    <h4><Anchor>Espresso - Single</Anchor></h4>
+                    <h4><Anchor>Espresso - Double</Anchor></h4>
+                    <h4><Anchor>Americano</Anchor></h4>
                 </div>
 
                 <div className="menubar-options">
                     <h2>Mix it Up</h2>
-                    <h4><a>Coke</a></h4>
-                    <h4><a>Irish Whiskey</a></h4>
-                    <h4><a>Bourbon</a></h4>
+                    <h4><Anchor>Coke</Anchor></h4>
+                    <h4><Anchor>Irish Whiskey</Anchor></h4>
+                    <h4><Anchor>Bourbon</Anchor></h4>
                 </div>
                 <div className="menubar-options">
                     <h2>
