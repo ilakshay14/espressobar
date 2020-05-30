@@ -1,13 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FlexRow, FlexColumn } from '../theme/defaultStyles';
+import { FlexColumn } from '../theme/defaultStyles';
 
 const StyledFooter = styled.footer`
     width: 100%;
     height: 10vh;
-    background: rgba(45, 41, 38, 0.7);
+    background: #6B6765;
     ${FlexColumn}
     text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 
     p{
         font-weight: 400;

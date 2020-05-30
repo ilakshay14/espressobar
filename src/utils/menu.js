@@ -1,3 +1,11 @@
+import Cake from '../assets/sides/cake.jpg';
+import Eggs from '../assets/sides/eggs.jpg';
+import Fries from '../assets/sides/fries.jpg';
+import Marble from '../assets/sides/marble.jpg';
+import Sandwich from '../assets/sides/sandwich.jpg';
+import Wings from '../assets/sides/wings.jpg';
+
+
 export default {
     "sides": {
         "blueberry cheese cake": {

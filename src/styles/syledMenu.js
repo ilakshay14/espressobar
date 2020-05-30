@@ -5,6 +5,7 @@ import { FlexRow, FlexColumn } from '../theme/defaultStyles';
 const StyledMenu = styled.div`
     height: 100vh;
     margin-top: 5%;
+    margin-bottom: 5%;
     ${FlexRow};
 
     .menubar{

@@ -22,22 +22,47 @@ const Sides = () => {
             <div className="sides-options">
                 <FoodCard
                     classname='food-card'
+                    src={Eggs}
+                    caption={'blueberry cheese cake'}
+                />
+                <FoodCard
+                    classname='food-card'
+                    src={Fries}
+                    caption={'blueberry cheese cake'}
+                />
+                <FoodCard
+                    classname='food-card'
+                    src={Marble}
+                    caption={'blueberry cheese cake'}
+                />
+                <FoodCard
+                    classname='food-card'
+                    src={Sandwich}
+                    caption={'blueberry cheese cake'}
+                />
+                <FoodCard
+                    classname='food-card'
+                    src={Wings}
+                    caption={'blueberry cheese cake'}
+                />
+                <FoodCard
+                    classname='food-card'
                     src={Cake}
                     caption={'blueberry cheese cake'}
                 />
 
-                {
+                {/* {
                     Object.keys(Menu.sides).map((item, index) => {
                         // console.log(Menu.sides[item])
 
                         return <FoodCard
                             key={index}
                             classname='food-card'
-                            src={Menu.sides[item].image}
+                            src={`${Menu.sides[item].image}`}
                             caption={item}
                         />
                     })
-                }
+                } */}
 
                 {/* <div className='food-card'>
                     <Image src={Marble} />
