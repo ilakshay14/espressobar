@@ -4,6 +4,9 @@ import { Route, Link, Switch } from 'react-router-dom'
 import Sides from './sides';
 import Anchor from '../common/anchor';
 import Footer from '../components/footer';
+import Cold from './basicCold';
+import Mix from './mixItUp';
+import Hot from './basicHot';
 
 const Menu = () => {
     return (
@@ -12,21 +15,27 @@ const Menu = () => {
                 <div className="menubar">
 
                     <div className="menubar-options">
-                        <h2>The Basic - Cold</h2>
+                        <h2>
+                            <Link to="/menu/cold">The Basic - Cold</Link>
+                        </h2>
                         <h4><Anchor>Iced Espresso</Anchor></h4>
                         <h4><Anchor>Cold Brew</Anchor></h4>
                         <h4><Anchor>Iced Americano</Anchor></h4>
                     </div>
 
                     <div className="menubar-options">
-                        <h2>The Basic - Hot</h2>
+                        <h2>
+                            <Link to="/menu/hot">The Basic - Hot</Link>
+                        </h2>
                         <h4><Anchor>Espresso - Single</Anchor></h4>
                         <h4><Anchor>Espresso - Double</Anchor></h4>
                         <h4><Anchor>Americano</Anchor></h4>
                     </div>
 
                     <div className="menubar-options">
-                        <h2>Mix it Up</h2>
+                        <h2>
+                            <Link to="/menu/mix">Mix it Up</Link>
+                        </h2>
                         <h4><Anchor>Coke</Anchor></h4>
                         <h4><Anchor>Irish Whiskey</Anchor></h4>
                         <h4><Anchor>Bourbon</Anchor></h4>
@@ -40,6 +49,9 @@ const Menu = () => {
                 <div className="menudisplay">
 
                     <Switch>
+                        <Route path='/menu/mix' exact component={Mix} />
+                        <Route path='/menu/hot' exact component={Hot} />
+                        <Route path='/menu/cold' exact component={Cold} />
                         <Route path='/menu/sides' exact component={Sides} />
                         <Route path='/menu' exact render={() => (
                             <div className="menu-home">

@@ -6,7 +6,8 @@ const StyledSides = styled.div`
     max-width: 1200px;
     ${FlexColumn}
     align-items: center;
-
+    /* border: 1px solid black; */
+    
     h2{
         font-weight: bold;
         font-size: 48px;
@@ -22,10 +23,13 @@ const StyledSides = styled.div`
         text-align: center;
     }
 
+    .menu-margin{
+        margin-bottom: 50px;
+    }
+
     .sides-options{
         ${FlexRow}
-        justify-content: center;
-
+        
         .food-card{
             flex: 0 0 320px;
             height: 400px;
@@ -33,7 +37,6 @@ const StyledSides = styled.div`
             text-align: center;
             ${FlexColumn}
             justify-content: space-evenly;
-            align-content: center;
             
 
             img{

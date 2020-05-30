@@ -9,7 +9,6 @@ const StyledMenu = styled.div`
     .menu-content{
         ${FlexRow};
         height: auto;
-   
 
     .menubar{
         width: 100%;
@@ -24,35 +23,41 @@ const StyledMenu = styled.div`
             letter-spacing: 0.05rem;
             font-size: initial;
 
-            :last-of-type{
-                cursor: pointer;
-                transition: transform 0.2s;
-            }
-
-            :last-of-type:hover{
-                transform: translateX(5px);
-            }
             
-            h2{
-                
-                line-height: 45px;
-                color: rgba(0, 0, 0, 0.75);
-                font-weight: 900;
+                /* cursor: pointer;
+                transition: transform 0.2s;
+            
+
+            :hover{
+                transform: translateX(5px);
+            } */
             }
 
-            h4, h4 a{
-                line-height: 30px;
-                color: rgba(0, 0, 0, 0.5);
-                font-weight: 500;
-                cursor: pointer;
-                transition: transform 0.2s;
+        h2{
+            
+            line-height: 45px;
+            color: rgba(0, 0, 0, 0.75);
+            font-weight: 900;
+            cursor: pointer;
+            transition: transform 0.2s;
 
-                :hover{
-                    transform: translateX(5px);
-                    
-                }
+            :hover{
+                transform: translateX(5px);  
             }
         }
+
+        h4, h4 a{
+            line-height: 30px;
+            color: rgba(0, 0, 0, 0.5);
+            font-weight: 500;
+            cursor: pointer;
+            transition: transform 0.2s;
+
+            :hover{
+                transform: translateX(5px);  
+            }
+        }
+        
     }
 
     .menudisplay{

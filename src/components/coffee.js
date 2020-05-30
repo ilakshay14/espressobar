@@ -1,8 +1,8 @@
 import React from 'react';
 
 import StyledCoffee from '../styles/styledCoffee';
-import coffee1 from '../assets/coffee.webp';
-import coffee2 from '../assets/coffee1.webp';
+import ColdBrew from '../assets/coffee.webp';
+import IcedEspresso from '../assets/coffee1.webp';
 import Footer from '../components/footer';
 
 
@@ -16,7 +16,7 @@ const Coffee = () => {
             <div className="coffee-content">
                 <div className="coffee">
                     <div className="coffee-image">
-                        <img src={coffee1} />
+                        <img src={ColdBrew} />
                     </div>
                     <div className="coffee-hero-text">
                         <h1>Iced Espresso</h1>
@@ -30,7 +30,7 @@ const Coffee = () => {
                         <p>Strong and smooth, slow steeped in cool water for 24 hours before it is french pressed and served with ice.</p>
                     </div>
                     <div className="coffee-image">
-                        <img src={coffee2} />
+                        <img src={IcedEspresso} />
                     </div>
 
                 </div>

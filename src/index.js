@@ -7,12 +7,9 @@ import GlobalStyle from './theme/globalStyles';
 
 
 ReactDOM.render(
-    <React.Fragment>
-
-        <BrowserRouter>
-            <GlobalStyle />
-            <App />
-        </BrowserRouter>
-    </React.Fragment>,
+    <BrowserRouter>
+        <GlobalStyle />
+        <App />
+    </BrowserRouter>,
     document.getElementById('root')
 );
