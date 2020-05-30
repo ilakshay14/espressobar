@@ -3,17 +3,20 @@ import { FlexRow, FlexColumn } from '../theme/defaultStyles';
 
 
 const StyledMenu = styled.div`
-    height: 100vh;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    ${FlexRow};
+    margin-top: 85px;
+    ${FlexColumn};
+
+    .menu-content{
+        ${FlexRow};
+        height: auto;
+   
 
     .menubar{
         width: 100%;
+        height: 90vh;
         flex: 0 0 15%;
-        /* border: 1px solid black; */
-        height: 90%;
         padding: 2%;
+        
         ${FlexColumn}
         justify-content: space-evenly;
 
@@ -40,25 +43,25 @@ const StyledMenu = styled.div`
             h4, h4 a{
                 line-height: 30px;
                 color: rgba(0, 0, 0, 0.5);
-                font-weight: 700;
+                font-weight: 500;
                 cursor: pointer;
                 transition: transform 0.2s;
 
                 :hover{
                     transform: translateX(5px);
+                    
                 }
             }
         }
     }
 
     .menudisplay{
-        margin: auto;
         height: auto;
         padding: 2%;
         flex: 0 0 75%;
 
         ${FlexRow}
-        /*  */
+        
         .menu-home{
             ${FlexColumn}
             align-items:center;
@@ -82,6 +85,7 @@ const StyledMenu = styled.div`
             }
         }
     }
+}
 
 `;
 

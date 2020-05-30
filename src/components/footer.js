@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import { FlexColumn } from '../theme/defaultStyles';
 
 const StyledFooter = styled.footer`
+
     width: 100%;
-    height: 10vh;
+    height: 80px;
     background: #6B6765;
     ${FlexColumn}
     text-align: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    margin-bottom: -85px;
+
 
     p{
         font-weight: 400;

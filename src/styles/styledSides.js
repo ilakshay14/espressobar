@@ -3,15 +3,11 @@ import { FlexRow, FlexColumn } from '../theme/defaultStyles';
 
 const StyledSides = styled.div`
     width: 100%;
-    height: 100%;
+    max-width: 1200px;
     ${FlexColumn}
     align-items: center;
-    height: 100%;
-    /* border: 1px solid black; */
-    overflow-y: scroll;
 
     h2{
-        margin-top: 5%;
         font-weight: bold;
         font-size: 48px;
         line-height: 80px;
@@ -29,18 +25,56 @@ const StyledSides = styled.div`
     .sides-options{
         ${FlexRow}
         justify-content: center;
-        
+
         .food-card{
-            flex: 0 0 33%;
+            flex: 0 0 320px;
+            height: 400px;
             margin: 3% auto;
             text-align: center;
+            ${FlexColumn}
+            justify-content: space-evenly;
+            align-content: center;
             
 
             img{
-                width: 200px;
+                width: 250px;
                 border-radius: 50%;
-                
             }
+
+            p {
+                margin-top: -5%;
+                margin-bottom: 5%;
+                font-size: 120%;
+            }
+        }
+    }
+
+    .addToCart{
+        align-self: center;
+
+        width: 80px;
+        height: 40px;
+
+        background: rgba(155, 54, 5, 0.9);
+        border: 1px solid rgba(155, 54, 5, 0.9);
+        box-sizing: border-box;
+        border-radius: 40px;
+
+        color: #ffffff;
+        font-size: 25px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        transition: box-shadow 0.2s linear;
+        
+        :hover{
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+        }
+
+
+        ion-icon{
+            vertical-align: middle;
         }
     }
 `;

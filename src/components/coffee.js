@@ -3,7 +3,7 @@ import React from 'react';
 import StyledCoffee from '../styles/styledCoffee';
 import coffee1 from '../assets/coffee.webp';
 import coffee2 from '../assets/coffee1.webp';
-
+import Footer from '../components/footer';
 
 
 
@@ -35,6 +35,7 @@ const Coffee = () => {
 
                 </div>
             </div>
+            <Footer />
         </StyledCoffee>
     );
 }

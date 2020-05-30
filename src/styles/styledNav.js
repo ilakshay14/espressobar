@@ -3,7 +3,7 @@ import { FlexRow } from '../theme/defaultStyles';
 
 const StyledNav = styled.nav`
     width: 100%;
-    height: 10vh;
+    height: 80px;
     position: fixed;
     top: 0;
     background-color: #ffffff;

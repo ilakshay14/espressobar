@@ -31,10 +31,8 @@ const App = () => {
                 )} />
                 <Route path='/menu' component={Menu} />
             </Switch>
-            {/* <StyledSection>
-                <Menu />
-            </StyledSection> */}
-            <Footer />
+
+            {/* <Footer /> */}
         </div>
     );
 
