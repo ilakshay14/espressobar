@@ -21,6 +21,7 @@ const StyledSides = styled.div`
         line-height: 80px;
         letter-spacing: 0.05em;
         text-align: center;
+        
     }
 
     .menu-margin{
@@ -42,12 +43,27 @@ const StyledSides = styled.div`
             img{
                 width: 250px;
                 border-radius: 50%;
+                align-self: center;
             }
 
             p {
                 margin-top: -5%;
                 margin-bottom: 5%;
                 font-size: 120%;
+            }
+
+            .foodcard-header{
+                ${FlexRow}
+
+                /* border: 1px solid black; */
+                align-content: center;
+                width: 100%;
+
+                ion-icon{
+                    vertical-align: middle;
+                    cursor: pointer;
+                    margin-left: 5px;
+                }
             }
         }
     }

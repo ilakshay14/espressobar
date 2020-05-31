@@ -1,7 +1,6 @@
 import React from 'react';
 import StyledSides from '../styles/styledSides';
 import FoodCard from '../UI/foodCard';
-
 import JD from '../assets/mix/jd.jpg';
 import Jameson from '../assets/mix/jameson.jpg';
 import Coke from '../assets/mix/coke.jpg';
