@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { FlexRow, FlexColumn } from '../theme/defaultStyles';
 
 const StyledCoffee = styled.div`
+    /* margin-top: 5%; */
     width: 100%;
-    /* height: 100vh; */
     margin: 0 auto;
     background: rgba(155, 54, 5, 0.9);
     ${FlexColumn}
@@ -23,42 +23,79 @@ const StyledCoffee = styled.div`
     }
 
     .coffee{
-        ${FlexRow}
-        justify-content: space-evenly;
-        margin: 0 auto;
-        width: 75%;
+        ${FlexColumn}
 
+        justify-content: space-evenly;
+        margin: 10% auto;
+        width: 90%;
+        /* border: 1px solid black; */
+        
+    }
+
+    .coffee:last-of-type{
+        flex-direction: column-reverse;
     }
 
     .coffee-image{
         width: 300px;
         height: 300px;
+        align-self: center;
+        margin-bottom: 20px;
     }
 
     img{
         width: 100%;
         height: 100%;
         border-radius: 50%;
+        margin: auto;
+        
     }
 
     .coffee-hero-text h1{
         font-size: 200%;
         letter-spacing: 0.15em;
+
     }
     .coffee-hero-text p{
         font-size: 120%;
         letter-spacing: 0.05em;
-        
 
     }
 
     .coffee-hero-text{
         align-self: center;
-        /* margin-left: 1%; */
         color: #ffffff;
-        width: 50%;
+        width: 80%;
+        text-align: center;
 
-        :first-of-type{
+        h1 {
+            margin-bottom: 20px;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .coffee{
+            ${FlexRow}
+            justify-content: space-evenly;
+            margin: 0 auto;
+            width: 75%;
+            
+        }
+
+        .coffee:last-of-type{
+            flex-direction: initial;
+        }
+
+        .coffee-hero-text{
+            width: 50%;
+            text-align: left;
+            
+            h1 {
+                margin-bottom: 10px;
+            }
+        }
+
+        .coffee-hero-text:first-of-type{
             text-align: right;
         }
     }

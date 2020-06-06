@@ -2,22 +2,20 @@ import styled from 'styled-components';
 import { FlexRow } from '../theme/defaultStyles';
 
 const StyledNav = styled.nav`
+
     width: 100%;
     height: 80px;
     position: fixed;
     top: 0;
     background-color: #ffffff;
     z-index: 100;
-
     ${FlexRow}
     justify-content:space-between;
-    
-    box-shadow: 0px 4px 5px rgba(255, 255, 255, 0.25);
+
 
     .navbrand{
         margin-left: 2%;
         ${FlexRow}
-        
     }
 
     .navbrand p {
@@ -37,7 +35,7 @@ const StyledNav = styled.nav`
     .navmenu ul {
         width: 100%;
         ${FlexRow};
-        justify-content: space-between;
+        justify-content: space-evenly;
         list-style: none;
     }
 
@@ -58,6 +56,10 @@ const StyledNav = styled.nav`
         a:hover{
             box-shadow: 0 8px 6px -6px black;
         }
+    }
+
+    @media screen and (min-width: 768px) {
+        box-shadow: 0px 4px 5px rgba(255, 255, 255, 0.25);
     }
 
 `;

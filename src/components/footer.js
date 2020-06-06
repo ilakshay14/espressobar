@@ -5,7 +5,7 @@ import { FlexColumn } from '../theme/defaultStyles';
 const StyledFooter = styled.footer`
 
     width: 100%;
-    height: 80px;
+    height: auto;
     background: #6B6765;
     ${FlexColumn}
     text-align: center;
@@ -24,6 +24,10 @@ const StyledFooter = styled.footer`
             color: red;
             font-size: 150%;
         }
+    }
+
+    @media screen and (min-width: 768px) {
+        height: 80px;
     }
 `;
 

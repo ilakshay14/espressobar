@@ -96,6 +96,17 @@ const StyledSides = styled.div`
             vertical-align: middle;
         }
     }
+
+    @media screen and (max-width: 480px) {
+        h2{
+            margin-top: 50px;
+            font-size: 36px;
+            line-height: 80px;
+            letter-spacing: 0.05em;
+        }
+
+
+    }
 `;
 
 export default StyledSides;

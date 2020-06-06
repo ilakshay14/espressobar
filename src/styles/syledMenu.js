@@ -10,6 +10,9 @@ const StyledMenu = styled.div`
         ${FlexRow};
         height: auto;
 
+    .menu-button{
+        display: none;
+    }
     .menubar{
         width: 100%;
         height: 90vh;
@@ -22,15 +25,6 @@ const StyledMenu = styled.div`
         .menubar-options {
             letter-spacing: 0.05rem;
             font-size: initial;
-
-            
-                /* cursor: pointer;
-                transition: transform 0.2s;
-            
-
-            :hover{
-                transform: translateX(5px);
-            } */
             }
 
         h2{
@@ -64,6 +58,7 @@ const StyledMenu = styled.div`
         height: auto;
         padding: 2%;
         flex: 0 0 75%;
+        text-align: center;
 
         ${FlexRow}
         
@@ -90,8 +85,79 @@ const StyledMenu = styled.div`
             }
         }
     }
-}
 
+
+    @media screen and (max-width: 480px) {
+
+        ${FlexColumn}
+
+
+        .menu-button{
+            z-index: 4;
+            display: block;
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
+            background-color: #39486C;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            outline: none;
+
+            font-size: 30px;
+            color: white;
+            text-align: center;
+
+            ion-icon{
+                vertical-align: middle;
+            }
+            
+        }
+        
+        .menubar{
+            /* display: none; */
+            display: ${props => props.showMenu ? 'initial' : 'none'};
+            position: fixed;
+            top: 85px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            z-index: 3;
+            background-color: #FFFAFA;
+            text-align: center;
+
+            .menubar-options{   
+                margin:0 auto;  
+                height: 200px;              
+            }
+            
+            h2{
+                font-size: 200%;
+                margin-top: 0px;
+            }
+
+            h4{
+                font-size: 150%;
+                margin-top: 10px;
+            }
+
+
+            
+        }
+
+        .menudisplay{
+            z-index: 1;
+            flex: 0 0 100%;
+            height: auto;
+            min-height: 100vh;
+        }
+
+
+    }
+}
 `;
 
 export default StyledMenu;

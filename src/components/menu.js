@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import StyledMenu from '../styles/syledMenu';
 import { Route, Link, Switch } from 'react-router-dom'
 import Sides from './sides';
@@ -9,14 +9,34 @@ import Mix from './mixItUp';
 import Hot from './basicHot';
 
 const Menu = () => {
+
+    const [showMenu, setDisplayState] = useState(false);
+
+    const displayMenu = () => {
+        setDisplayState(!showMenu);
+    }
+
+    const hideMenu = () => {
+        setDisplayState(false);
+    }
+
+    // useEffect(() => {
+    //     console.log(showMenu);
+
+    // }, [showMenu]);
+
     return (
-        <StyledMenu id="menu">
+        <StyledMenu id="menu" showMenu={showMenu}>
             <div className="menu-content">
+                <button className="menu-button" onClick={displayMenu}>
+                    <ion-icon name="cafe-outline"></ion-icon>
+                </button>
                 <div className="menubar">
+
 
                     <div className="menubar-options">
                         <h2>
-                            <Link to="/menu/cold">The Basic - Cold</Link>
+                            <Link to="/menu/cold" onClick={hideMenu} >The Basic - Cold</Link>
                         </h2>
                         <h4><Anchor>Iced Espresso</Anchor></h4>
                         <h4><Anchor>Cold Brew</Anchor></h4>
@@ -25,7 +45,7 @@ const Menu = () => {
 
                     <div className="menubar-options">
                         <h2>
-                            <Link to="/menu/hot">The Basic - Hot</Link>
+                            <Link to="/menu/hot" onClick={hideMenu} >The Basic - Hot</Link>
                         </h2>
                         <h4><Anchor>Espresso - Single</Anchor></h4>
                         <h4><Anchor>Espresso - Double</Anchor></h4>
@@ -34,7 +54,7 @@ const Menu = () => {
 
                     <div className="menubar-options">
                         <h2>
-                            <Link to="/menu/mix">Mix it Up</Link>
+                            <Link to="/menu/mix" onClick={hideMenu} >Mix it Up</Link>
                         </h2>
                         <h4><Anchor>Coke</Anchor></h4>
                         <h4><Anchor>Irish Whiskey</Anchor></h4>
@@ -42,7 +62,7 @@ const Menu = () => {
                     </div>
                     <div className="menubar-options">
                         <h2>
-                            <Link to="/menu/sides">Sides</Link>
+                            <Link to="/menu/sides" onClick={hideMenu} >Sides</Link>
                         </h2>
                     </div>
                 </div>

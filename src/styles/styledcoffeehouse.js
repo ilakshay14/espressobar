@@ -3,11 +3,11 @@ import { FlexColumn, FlexRow } from '../theme/defaultStyles';
 
 const StyledCoffeehouse = styled.div`
     width: 100%;
-    /* height: 100%; */
+    height: 100%;
     background-color: #FAF7F7;
     
     .ch-image{
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
         
     }
@@ -21,7 +21,7 @@ const StyledCoffeehouse = styled.div`
         position: relative;
         ${FlexColumn}
         justify-content: space-evenly;
-        width: 70%;
+        width: 90%;
         height: 700px;
         background-color: #FFFFFF;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -31,9 +31,10 @@ const StyledCoffeehouse = styled.div`
 
         h1 {
             font-weight: bold;
-            font-size: 300%;
+            font-size: 250%;
             line-height: 45px;
-            letter-spacing: 0.25em;
+            letter-spacing: 0;
+            text-align: center;
         }
 
         .social-icons{
@@ -48,13 +49,37 @@ const StyledCoffeehouse = styled.div`
 
         .ch-text{
             align-self: center;
-            width: 500px;
+            width: 90%;
             text-align: center;
-            font-size: 24px;
+            font-size: 18px;
             line-height: 30px;
-            text-align: center;
-            letter-spacing: 0.05em;
+            letter-spacing: 0;
         }
+        
+    }
+
+    @media screen and (min-width: 768px) {
+        height: auto;
+
+        .ch-image{
+            width: 90%;
+        }
+
+        .ch-content{
+            width: 70%;
+
+            h1 {
+                font-size: 300%;
+                letter-spacing: 0.25em;
+            }
+
+            .ch-text{
+                width: 500px;
+                font-size: 24px;
+                letter-spacing: 0.05em;
+            }
+        }
+
         
     }
 `;
