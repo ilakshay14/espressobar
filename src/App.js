@@ -8,11 +8,12 @@ import Coffeehouse from './components/coffeehouse';
 import Coffee from './components/coffee';
 import Menu from './components/menu';
 import Footer from './components/footer';
+import Login from './components/login';
 
 const App = () => {
     return (
         <div>
-            <Navbar />
+            {/* <Navbar />
 
 
             <Switch>
@@ -30,9 +31,9 @@ const App = () => {
                     </>
                 )} />
                 <Route path='/menu' component={Menu} />
-            </Switch>
+            </Switch> */}
 
-            {/* <Footer /> */}
+            <Login />
         </div>
     );
 
