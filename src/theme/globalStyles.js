@@ -31,6 +31,10 @@ const GlobalStyle = createGlobalStyle`
         border-radius: 8px;
     }
 
+    ion-icon{
+        vertical-align: middle;
+    }
+
     
 `;
 

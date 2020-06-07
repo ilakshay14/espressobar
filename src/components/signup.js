@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
-
+import styled from 'styled-components';
 import StyledLogin from '../styles/styledLogin';
-import { Link, Redirect } from 'react-router-dom';
+
+const StyledSignUp = styled.div`
+    ${StyledLogin}
+    height: 550px;
+`;
 
 
-const Login = () => {
-
+const SignUp = () => {
     let _password = '';
     let _email = '';
+    let _firstname = '';
+    let _lastname = '';
     let _errors = {
         password: '',
         email: '',
+        name: ''
     }
 
     const [showForm, setShowForm] = useState(true);
     const [isFormValid, setFormValid] = useState(false);
     const [formError, setFormError] = useState('');
-    const [redirect, setRedirect] = useState(null);
 
     const onBlurHandler = ({ target }) => {
         // alert(target.name);
@@ -40,6 +45,24 @@ const Login = () => {
                     _errors.email = 'Invalid email number'
                     break
                 }
+
+            case "firstname":
+                if (target.value.length === 0) {
+                    _errors.name = 'Name cannot be empty'
+                    break
+                }
+                _firstname = target.value;
+                break;
+
+
+            case "lastname":
+                if (target.value.length === 0) {
+                    _errors.name = 'Name cannot be empty'
+                    break
+                }
+                _lastname = target.value;
+                break;
+
             default:
                 break;
         }
@@ -57,7 +80,9 @@ const Login = () => {
         })
 
         if (_password.length === 0 ||
-            _email.length === 0) {
+            _email.length === 0 ||
+            _firstname.length === 0 ||
+            _lastname.length === 0) {
             validity = false;
         }
 
@@ -69,7 +94,7 @@ const Login = () => {
 
         setFormError('');
         console.log('Form is valid');
-        setRedirect('/home');
+
 
 
         // const postData = {
@@ -90,44 +115,49 @@ const Login = () => {
 
     }
 
-    if (redirect) {
-        return <Redirect to={redirect} />
-    }
 
-    else {
-        return (
 
-            <StyledLogin>
-                <form>
-                    <p className="formError">{formError}</p>
+    return (
+        <StyledLogin>
+            <form>
+                <p className="formError">{formError}</p>
 
-                    <input type="email"
-                        placeholder="email"
-                        name="email"
-                        onBlur={onBlurHandler}
-                        required
-                    />
+                <input type="text"
+                    placeholder="first name"
+                    name="firstname"
+                    onBlur={onBlurHandler}
+                    required
+                />
 
-                    <input type="password"
-                        placeholder="password"
-                        name="password"
-                        onBlur={onBlurHandler}
-                        required
-                    />
 
-                    <div className="contact-form-input">
-                        <button onClick={onFormSubmit}>login</button>
-                    </div>
-                    <p className="new-user">new user?&nbsp;
-                    <u>
-                            <Link to="/signup">sign up</Link>
-                        </u>
-                    </p>
-                </form >
-            </StyledLogin >
+                <input type="text"
+                    placeholder="last name"
+                    name="lastname"
+                    onBlur={onBlurHandler}
+                    required
+                />
 
-        );
-    }
+                <input type="email"
+                    placeholder="email"
+                    name="email"
+                    onBlur={onBlurHandler}
+                    required
+                />
+
+                <input type="password"
+                    placeholder="password"
+                    name="password"
+                    onBlur={onBlurHandler}
+                    required
+                />
+
+                <div className="contact-form-input">
+                    <button onClick={onFormSubmit}>sign up</button>
+                </div>
+
+            </form>
+        </StyledLogin>
+    );
 }
 
-export default Login;
+export default SignUp;

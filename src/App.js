@@ -9,6 +9,8 @@ import Coffee from './components/coffee';
 import Menu from './components/menu';
 import Footer from './components/footer';
 import Login from './components/login';
+import SignUp from './components/signup';
+import Dashboard from './user/dashboard';
 
 const App = () => {
     return (
@@ -18,6 +20,12 @@ const App = () => {
 
             <Switch>
                 <Route path='/' exact render={() => (
+                    <Login />
+
+                )} />
+                <Route path='/menu' component={Menu} />
+                <Route path='/signup' component={SignUp} />
+                <Route path='/home' exact render={() => (
                     <>
                         <StyledSection>
                             <Header />
@@ -30,10 +38,10 @@ const App = () => {
                         </StyledSection>
                     </>
                 )} />
-                <Route path='/menu' component={Menu} />
             </Switch> */}
 
-            <Login />
+            <Dashboard />
+
         </div>
     );
 
