@@ -15,7 +15,7 @@ import Dashboard from './user/dashboard';
 const App = () => {
     return (
         <div>
-            {/* <Navbar />
+            <Navbar />
 
 
             <Switch>
@@ -38,9 +38,9 @@ const App = () => {
                         </StyledSection>
                     </>
                 )} />
-            </Switch> */}
+            </Switch>
 
-            <Dashboard />
+            {/* <Dashboard /> */}
 
         </div>
     );
