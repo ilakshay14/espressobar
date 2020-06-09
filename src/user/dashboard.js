@@ -8,13 +8,16 @@ import UserBookmarks from './userBookmarks';
 import UserCart from './userCart';
 
 const StyledDashboard = styled.div`
+    margin-top: 85px;
     width: 100%;
-    height: 100vh;
+    height: auto;
+    min-height: 90vh;
     background-color: #DBE0E6;
 
     ${FlexRow}
 
     .dashboard-content{
+        margin-left: 20%;
         width: 80%;
         height: 100%;
         ${FlexRow}

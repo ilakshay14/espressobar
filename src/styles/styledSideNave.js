@@ -2,8 +2,12 @@ import styled from 'styled-components';
 import { FlexRow, FlexColumn } from '../theme/defaultStyles';
 
 const StyledSideNav = styled.div`
+    /* margin-top: 3%; */
+    position: fixed;
+    left: 0;
     width: 20%;
-    height: 100%;
+    height: 95%;
+    min-height: 95%;
     background-color: #ffffff;
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
@@ -32,15 +36,15 @@ const StyledSideNav = styled.div`
         ${FlexColumn}
         
         ul {
-            /* border: 1px solid black; */
-            margin-top: -20%;
+            
+            margin-top: -50%;
             list-style: none;
             font-size: 20px;
             width: 100%;
 
             li{
                 margin-top: 41px;
-                width: 70%;
+                width: 75%;
                 padding: 5%;
                 margin-left: 30%;
                 cursor: pointer;
@@ -54,10 +58,11 @@ const StyledSideNav = styled.div`
 
                 :last-of-type{
                     position: absolute;
-                    bottom: 5%;
-                    margin-left: 7%;
+                    bottom: 10%;
+                    margin-left: 30%;
                     width: auto;
                     padding: 0;
+                    
                 }
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link, Switch } from 'react-router-dom'
+import { Route, Link, Switch, Redirect } from 'react-router-dom'
 
 import Header from './components/header';
 import StyledSection from './styles/styledSection';
@@ -17,14 +17,12 @@ const App = () => {
         <div>
             <Navbar />
 
-
+            {/* <Redirect from="/" to="/home" />
             <Switch>
-                <Route path='/' exact render={() => (
-                    <Login />
 
-                )} />
                 <Route path='/menu' component={Menu} />
                 <Route path='/signup' component={SignUp} />
+                <Route path='/user' component={Dashboard} />
                 <Route path='/home' exact render={() => (
                     <>
                         <StyledSection>
@@ -38,9 +36,9 @@ const App = () => {
                         </StyledSection>
                     </>
                 )} />
-            </Switch>
+            </Switch> */}
 
-            {/* <Dashboard /> */}
+            <Dashboard />
 
         </div>
     );

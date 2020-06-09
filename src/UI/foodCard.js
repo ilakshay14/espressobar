@@ -1,14 +1,14 @@
 import React from 'react';
 import Image from '../common/image';
 
-const FoodCard = ({ src, caption, classname, buttonStyle, price }) => {
+const FoodCard = ({ src, caption, classname, buttonStyle, price, bookmark }) => {
     return (
         <div className={classname}>
             <Image src={src} />
             <div className="foodcard-header">
                 <h4>
                     {caption}
-                    <ion-icon name="bookmark-outline"></ion-icon>
+                    <ion-icon name={bookmark || "bookmark-outline"}></ion-icon>
 
                 </h4>
 
