@@ -1,12 +1,11 @@
 import React from 'react';
-import CoffeehouseImage from '../assets/coffeehouse.jpeg';
 import StyledCoffeehouse from '../styles/styledcoffeehouse';
 
 const Coffeehouse = () => {
     return (
         <StyledCoffeehouse id="coffeehouse">
             <div className="ch-image">
-                <img src={CoffeehouseImage} />
+                <img src='https://cdn.lakshay.xyz/espresso-bar/coffeehouse.jpeg' />
             </div>
             <div className="ch-content">
                 <h1>Our Commitment</h1>

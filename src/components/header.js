@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import coffee from '../assets/coffee.webp';
 import { FlexRow, FlexColumn } from '../theme/defaultStyles';
+
 
 const StyledMain = styled.main`
     width: 100%;
@@ -10,7 +10,7 @@ const StyledMain = styled.main`
     margin-top: 5%;
     ${FlexRow}
     
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, #000000 100%), url(${coffee});
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, #000000 100%), url('https://cdn.lakshay.xyz/espresso-bar/cold/icedespresso.webp');
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
@@ -77,12 +77,14 @@ const StyledMain = styled.main`
     
 `;
 
+const icedEspresso = 'https://cdn.lakshay.xyz/espresso-bar/cold/icedespresso.webp';
+
 const Header = () => {
     return (
         <React.Fragment>
-            <StyledMain id="home">
+            <StyledMain id="home" coffee={icedEspresso}>
                 <div className="header-hero">
-                    <img src={coffee} />
+                    <img src={icedEspresso} />
                     <div className="header-hero-text">
                         <h1>Espresso <br className="break" />bar</h1>
                         <h4>coffee. network. code.</h4>

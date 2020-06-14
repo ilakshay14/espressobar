@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FlexRow, FlexColumn } from '../theme/defaultStyles';
-import Eggs from '../assets/sides/eggs.jpg';
 import FoodCard from '../UI/foodCard';
 
 const StyledBookmarks = styled.div`

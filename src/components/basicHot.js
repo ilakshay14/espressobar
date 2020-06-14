@@ -2,9 +2,7 @@ import React from 'react';
 import StyledSides from '../styles/styledSides';
 import FoodCard from '../UI/foodCard';
 
-import EspressoSingle from '../assets/hot/espresso_single.jpg'
-import EspressoDouble from '../assets/hot/espresso_double.jpg'
-import Americano from '../assets/hot/americano.jpg'
+import { hot } from '../utils/menu.json';
 
 const Hot = () => {
     return (
@@ -13,27 +11,18 @@ const Hot = () => {
                 <h2>The Basic - Hot</h2>
             </div>
             <div className="sides-options">
-                <FoodCard
-                    classname='food-card'
-                    src={EspressoSingle}
-                    caption='Espresso - Single'
-                    price='150 INR'
-                    buttonStyle='addToCart'
-                />
-                <FoodCard
-                    classname='food-card'
-                    src={EspressoDouble}
-                    caption='Espresso Double'
-                    price='200 INR'
-                    buttonStyle='addToCart'
-                />
-                <FoodCard
-                    classname='food-card'
-                    src={Americano}
-                    caption='Americano'
-                    price='100 INR'
-                    buttonStyle='addToCart'
-                />
+                {
+                    hot.map(item => {
+                        return <FoodCard
+                            key={item.name}
+                            classname='food-card'
+                            src={`https://cdn.lakshay.xyz/${item.image}`}
+                            caption={item.name}
+                            price={item.price}
+                            buttonStyle='addToCart'
+                        />
+                    })
+                }
 
             </div>
         </StyledSides>

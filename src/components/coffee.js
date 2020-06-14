@@ -1,13 +1,12 @@
 import React from 'react';
 
 import StyledCoffee from '../styles/styledCoffee';
-import ColdBrew from '../assets/coffee.webp';
-import IcedEspresso from '../assets/coffee1.webp';
 import Footer from '../components/footer';
 
 
 
 //TODO create common styles for images
+
 
 const Coffee = () => {
     return (
@@ -16,7 +15,7 @@ const Coffee = () => {
             <div className="coffee-content">
                 <div className="coffee">
                     <div className="coffee-image">
-                        <img src={ColdBrew} />
+                        <img src='https://cdn.lakshay.xyz/espresso-bar/cold/icedespresso.webp' />
                     </div>
                     <div className="coffee-hero-text">
                         <h1>Iced Espresso</h1>
@@ -30,7 +29,7 @@ const Coffee = () => {
                         <p>Strong and smooth, slow steeped in cool water for 24 hours before it is french pressed and served with ice.</p>
                     </div>
                     <div className="coffee-image">
-                        <img src={IcedEspresso} />
+                        <img src='https://cdn.lakshay.xyz/espresso-bar/cold/coldbrew.webp' />
                     </div>
 
                 </div>

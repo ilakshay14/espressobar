@@ -1,9 +1,8 @@
 import React from 'react';
 import StyledSides from '../styles/styledSides';
 import FoodCard from '../UI/foodCard';
-import JD from '../assets/mix/jd.jpg';
-import Jameson from '../assets/mix/jameson.jpg';
-import Coke from '../assets/mix/coke.jpg';
+
+import { mix } from '../utils/menu.json';
 
 const Mix = () => {
     return (
@@ -12,27 +11,18 @@ const Mix = () => {
                 <h2>Mix it Up</h2>
             </div>
             <div className="sides-options">
-                <FoodCard
-                    classname='food-card'
-                    src={Coke}
-                    caption='Coke'
-                    price='70 INR'
-                    buttonStyle='addToCart'
-                />
-                <FoodCard
-                    classname='food-card'
-                    src={Jameson}
-                    caption='Jameson Irish whiskey'
-                    price='150 INR/shot'
-                    buttonStyle='addToCart'
-                />
-                <FoodCard
-                    classname='food-card'
-                    src={JD}
-                    caption='Jack Daniels'
-                    price='220 INR/shot'
-                    buttonStyle='addToCart'
-                />
+                {
+                    mix.map(item => {
+                        return <FoodCard
+                            key={item.name}
+                            classname='food-card'
+                            src={`https://cdn.lakshay.xyz/${item.image}`}
+                            caption={item.name}
+                            price={item.price}
+                            buttonStyle='addToCart'
+                        />
+                    })
+                }
 
             </div>
         </StyledSides>

@@ -1,0 +1,85 @@
+{
+    "sides": [
+        {
+            "name": "Blueberry cheese cake",
+            "price": "100 INR",
+            "image": "espresso-bar/sides/cake.jpg"
+        },
+        {
+            "name": "Vanilla marble cake",
+            "price": "80 INR",
+            "image": "espresso-bar/sides/marble.jpg"
+        },
+        {
+            "name": "Salted fries",
+            "price": "60 INR",
+            "image": "espresso-bar/sides/fries.jpg"
+        },
+        {
+            "name": "Egg chicken sandwich",
+            "price": "150 INR",
+            "image": "espresso-bar/sides/sandwich.jpg"
+        },
+        {
+            "name": "Classic Scrambled eggs",
+            "price": "90 INR",
+            "image": "espresso-bar/sides/eggs.jpg"
+        },
+        {
+            "name": "Chicken wings",
+            "price": "200 INR",
+            "image": "espresso-bar/sides/wings.jpg"
+        }
+    ],
+    "mix": [
+        {
+            "name": "Coke",
+            "price": "70 INR",
+            "image": "espresso-bar/mix/coke.jpg"
+        },
+        {
+            "name": "Jameson Irish whiskey",
+            "price": "150 INR/shot",
+            "image": "espresso-bar/mix/jameson.jpg"
+        },
+        {
+            "name": "Jack Daniels",
+            "price": "220 INR/shot",
+            "image": "espresso-bar/mix/jd.jpg"
+        }
+    ],
+    "cold": [
+        {
+            "name": "Cold brew",
+            "price": "250 INR",
+            "image": "espresso-bar/cold/coldbrew.webp"
+        },
+        {
+            "name": "Iced Espresso",
+            "price": "200 INR",
+            "image": "espresso-bar/cold/icedespresso.webp"
+        },
+        {
+            "name": "Iced Americano",
+            "price": "150 INR",
+            "image": "espresso-bar/cold/icedamericano.jpg"
+        }
+    ],
+    "hot": [
+        {
+            "name": "Espresso - Single",
+            "price": "150 INR",
+            "image": "espresso-bar/hot/espresso_single.jpg"
+        },
+        {
+            "name": "Espresso - Double",
+            "price": "200 INR",
+            "image": "espresso-bar/hot/espresso_double.jpg"
+        },
+        {
+            "name": "Americano",
+            "price": "100 INR",
+            "image": "espresso-bar/hot/americano.jpg"
+        }
+    ]
+}

@@ -17,7 +17,7 @@ const App = () => {
         <div>
             <Navbar />
 
-            {/* <Redirect from="/" to="/home" />
+            <Redirect from="/" to="/home" />
             <Switch>
 
                 <Route path='/menu' component={Menu} />
@@ -36,9 +36,9 @@ const App = () => {
                         </StyledSection>
                     </>
                 )} />
-            </Switch> */}
+            </Switch>
 
-            <Dashboard />
+            {/* <Dashboard /> */}
 
         </div>
     );
