@@ -1,3 +1,6 @@
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/ilakshay14/espressobar.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ilakshay14/espressobar/alerts/)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/ilakshay14/espressobar.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ilakshay14/espressobar/alerts/)
+
 # Espresso Bar React frontend
 
 <p>Designed and Developed with :heart: </p> using
