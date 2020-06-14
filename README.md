@@ -1,6 +1,6 @@
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/ilakshay14/espressobar.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ilakshay14/espressobar/context:javascript) [![Total alerts](https://img.shields.io/lgtm/alerts/g/ilakshay14/espressobar.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ilakshay14/espressobar/alerts/)
 
-[![GitHub issues](https://img.shields.io/github/issues/ilakshay14/espressobar)](https://github.com/ilakshay14/espressobar/issues)
+[![GitHub issues](https://img.shields.io/github/issues/ilakshay14/espressobar)](https://github.com/ilakshay14/espressobar/issues) [![Core](https://img.shields.io/badge/core-ReactJS-blue)](https://github.com/ilakshay14/espressobar)
 
 
 # Espresso Bar React frontend
