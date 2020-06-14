@@ -42,16 +42,15 @@
 
 # Contributors
 
-<ul>
-    <li>
-        <h2>Bharat Bhushan</h2>
-        <a href="https://github.com/nalayakengineer">Github</a>
-        <a href="http://bharatbhushan.me/">Web</a>
-    </li>
-    <li>
-        <h2>Lakshay</h2>
-        <a href="https://github.com/ilakshay14">Github</a>
-        <a href="https://lakshay.xyz/">Web</a>
-    </li>
-</ul>
+<p>
+    <h2>Bharat Bhushan</h2>
+    <a href="https://github.com/nalayakengineer">Github</a><br/>
+    <a href="http://bharatbhushan.me/">Web</a>
+</p>
+<p>
+    <h2>Lakshay</h2>
+    <a href="https://github.com/ilakshay14">Github</a><br/>
+    <a href="https://lakshay.xyz/">Web</a>
+</p>
+
 
