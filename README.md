@@ -1,6 +1,4 @@
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/ilakshay14/espressobar.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ilakshay14/espressobar/context:javascript) [![Total alerts](https://img.shields.io/lgtm/alerts/g/ilakshay14/espressobar.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ilakshay14/espressobar/alerts/)
-
-[![GitHub issues](https://img.shields.io/github/issues/ilakshay14/espressobar)](https://github.com/ilakshay14/espressobar/issues) [![Core](https://img.shields.io/badge/core-ReactJS-blue)](https://github.com/ilakshay14/espressobar)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/ilakshay14/espressobar.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ilakshay14/espressobar/context:javascript) [![Total alerts](https://img.shields.io/lgtm/alerts/g/ilakshay14/espressobar.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/ilakshay14/espressobar/alerts/) [![GitHub issues](https://img.shields.io/github/issues/ilakshay14/espressobar)](https://github.com/ilakshay14/espressobar/issues) [![Core](https://img.shields.io/badge/core-ReactJS-blue)](https://github.com/ilakshay14/espressobar)
 
 
 # Espresso Bar React frontend
@@ -35,5 +33,25 @@
     <li>Mark/Unmark as favourite</li>
 </ol>
 
+# Preview
+<a href="http://espressobar.lakshay.xyz/">Espresso Bar<a/>
 
+# Thanks!
+<p>Hi! Feel free to check it out and let us know how we can improve it further.</p>
+<p>This project is still in a very early stage and we love it alot and would like to hear from you how we can make it better.</p>
+
+# Contributors
+
+<ul>
+    <li>
+        <h2>Bharat Bhushan</h2>
+        <a href="https://github.com/nalayakengineer">Github</a>
+        <a href="http://bharatbhushan.me/">Web</a>
+    </li>
+    <li>
+        <h2>Lakshay</h2>
+        <a href="https://github.com/ilakshay14">Github</a>
+        <a href="https://lakshay.xyz/">Web</a>
+    </li>
+</ul>
 
