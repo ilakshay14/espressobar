@@ -1,6 +1,6 @@
 # Espresso Bar React frontend
 
-<p>Designed and Developed with :heart: using </p>
+<p>Designed and Developed with :heart: </p> using
 <ul>
     <li>React JS</li>
     <li>Styled Components</li>
