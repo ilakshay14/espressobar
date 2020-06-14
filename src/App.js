@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link, Switch, Redirect } from 'react-router-dom'
+import { Route, Link, Switch, Redirect, withRouter } from 'react-router-dom'
 
 import Header from './components/header';
 import StyledSection from './styles/styledSection';
@@ -17,13 +17,9 @@ const App = () => {
         <div>
             <Navbar />
 
-            <Redirect from="/" to="/home" />
+            {/* <Redirect from="/" to="/home" /> */}
             <Switch>
-
-                <Route path='/menu' component={Menu} />
-                <Route path='/signup' component={SignUp} />
-                <Route path='/user' component={Dashboard} />
-                <Route path='/home' exact render={() => (
+                <Route path='/' exact render={() => (
                     <>
                         <StyledSection>
                             <Header />
@@ -36,13 +32,16 @@ const App = () => {
                         </StyledSection>
                     </>
                 )} />
+                <Route path='/menu' component={Menu} />
+                <Route path='/signup' component={SignUp} />
+                <Route path='/user' component={Dashboard} />
+
             </Switch>
 
             {/* <Dashboard /> */}
-
         </div>
     );
 
 }
 
-export default App;
+export default withRouter(App);
