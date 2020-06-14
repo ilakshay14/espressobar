@@ -1,5 +1,13 @@
 # Espresso Bar React frontend
 
+<p>Designed and Developed with :heart: using </p>
+<ul>
+    <li>React JS</li>
+    <li>Styled Components</li>
+</ul>
+
+<p>Soon will be adding GraphQL</p>
+
 <h2>Disclaimer</h2>
 <p>This is just a demo site built for demonstration of my skills. The coffeehouse image was clicked in Starbucks in DLF Promenade, New Delhi by me.</p>
 <p>Coffee images belong to Starbucks and were taken from Google. Food images were taken from Unsplash.
