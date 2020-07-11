@@ -17,41 +17,66 @@ const initialState = [
         "name": "scrambled eggs",
         "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
         "price": "100 INR"
+    },
+    {
+        "name": "scrambled eggs",
+        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
+        "price": "100 INR"
+    },
+    {
+        "name": "scrambled eggs",
+        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
+        "price": "100 INR"
+    },
+    {
+        "name": "scrambled eggs",
+        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
+        "price": "100 INR"
+    },
+    {
+        "name": "scrambled eggs",
+        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
+        "price": "100 INR"
     }
 ]
 
 const StyledCart = styled.div`
-    margin-top: 2%;
-    width: 85%;
-    height: 80vh;
-    border-radius: 25px;
-    background-color: #ffffff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 5%;
+    width: 100%;
+    height: 100vh;
 
     ${FlexRow};
 
     .cart-A, .cart-B{
-        width: 45%;
-        height: 90%;
-        /* border: 1px solid black; */
+        width: 40%;
+        height: 80%;
+        
         padding: 10px;
     }
 
     .cart-A{
         border-right: 1px solid #DBE0E6;
+
         ${FlexColumn}
-        justify-content: space-evenly;
+        justify-content: start;
         flex-wrap: nowrap;
         overflow-y: scroll;
 
         .cart-item{
             width: 90%;
             height: 100px;
-            /* border: 1px solid black; */
             margin: 2% auto;
+            background-color: #ffffff;
             ${FlexRow}
             justify-content: space-between;
             align-content: center;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+            transition: all 0.25s linear;
+            border-radius: 15px;
+
+            :hover{
+                box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.25);
+            }
 
             p{
                 margin: auto;
@@ -65,14 +90,19 @@ const StyledCart = styled.div`
                 color: #C4C4C4;
             }
 
+            a {
+                margin: auto;
+                font-size: 120%;
+            }
+
             .cart-item-img{
-                width: 90px;
-                height: 90px;
+                width: 100px;
+                height: 100px;
                 
                 img{
                     width: 100%;
                     height: 100%;
-                    border-radius: 20px;
+                    border-radius: 15px;
                     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                 }
             }
@@ -97,8 +127,8 @@ const StyledCart = styled.div`
                 width: 90%;
                 height: 150px;
                 background: #39486C;
-                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                border-radius: 25px;
+                border-radius: 15px;
+                box-shadow: 0px 5px 70px rgba(0, 0, 0, 0.25);
 
                 p{
                     font-size: 18px;
@@ -134,36 +164,53 @@ const StyledCart = styled.div`
                 }
             }
 
-            .final-price{
-                ${FlexRow}
-                justify-content: space-evenly;
-                width: 90%;
-
-                .total-label{
-                    margin-top: auto;
-                    margin-bottom: auto;
-                }
-
-                .total-price{
-                    font-size: 24px;
-                    font-weight: bold;
-                }
-            }
-
-            .checkout-button{
+            .checkout{
+                width: 70%;
+                height: 200px;
                 align-self: center;
-                border: none;
-                width: 150px;
-                height: 60px;
-
-                background: #9B3605;
-                border-radius: 100px;
-                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
                 ${FlexRow}
-                justify-content: space-evenly;
-                color: white;
-                font-size: 18px;
+                align-content: space-evenly;
+                background: #FFFFFF;
+                box-shadow: 0px 5px 70px rgba(0, 0, 0, 0.25);
+                border-radius: 20px;
+
+                .final-price{
+                    ${FlexRow}
+                    justify-content: space-evenly;
+                    width: 90%;
+
+                    .total-label{
+                        margin-top: auto;
+                        margin-bottom: auto;
+                    }
+
+                    .total-price{
+                        font-size: 24px;
+                        font-weight: bold;
+                    }
+                }
+
+                .checkout-line{
+                    border-bottom: 1px solid #DBE0E6;
+                    width: 200px;
+                }
+
+                .checkout-button{
+                    align-self: center;
+                    border: none;
+                    width: 150px;
+                    height: 50px;
+
+                    background: #9B3605;
+                    border-radius: 100px;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+                    ${FlexRow}
+                    justify-content: space-evenly;
+                    color: white;
+                    font-size: 18px;
+                }
             }
         }
     }
@@ -183,6 +230,7 @@ const UserCart = () => {
                             <p>1 x</p>
                             <p className="item-name">Classic Scrambled Eggs</p>
                             <p className="item-price">100 INR</p>
+                            <a><ion-icon name="trash-outline"></ion-icon></a>
 
                         </div>
                     })
@@ -199,14 +247,17 @@ const UserCart = () => {
                             <p>35 min</p>
                         </div>
                     </div>
-                    <div className="final-price">
-                        <p className="total-label">Total:</p>
-                        <p className="total-price">300 INR</p>
+                    <div className="checkout">
+                        <div className="final-price">
+                            <p className="total-label">Total:</p>
+                            <p className="total-price">300 INR</p>
+                        </div>
+                        <div className="checkout-line"></div>
+                        <button className="checkout-button">
+                            Checkout
+                            <ion-icon name="chevron-forward-outline"></ion-icon>
+                        </button>
                     </div>
-                    <button className="checkout-button">
-                        Checkout
-                        <ion-icon name="chevron-forward-outline"></ion-icon>
-                    </button>
                 </div>
             </div>
         </StyledCart>

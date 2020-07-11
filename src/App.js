@@ -15,12 +15,13 @@ import Dashboard from './user/dashboard';
 const App = () => {
     return (
         <div>
-            <Navbar />
+            {/* <Navbar /> */}
 
             {/* <Redirect from="/" to="/home" /> */}
             <Switch>
                 <Route path='/' exact render={() => (
                     <>
+                        <Navbar />
                         <StyledSection>
                             <Header />
                         </StyledSection>
@@ -31,6 +32,8 @@ const App = () => {
                             <Coffee />
                         </StyledSection>
                     </>
+
+                    // <Dashboard/>
                 )} />
                 <Route path='/menu' component={Menu} />
                 <Route path='/signup' component={SignUp} />

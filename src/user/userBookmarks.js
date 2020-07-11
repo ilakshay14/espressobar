@@ -4,8 +4,8 @@ import { FlexRow, FlexColumn } from '../theme/defaultStyles';
 import FoodCard from '../UI/foodCard';
 
 const StyledBookmarks = styled.div`
-margin-top: 5%;
-    width: 85%;
+    margin-top: 10%;
+    width: 80%;
     height: 100%;
 
     ${FlexRow};
@@ -18,8 +18,14 @@ margin-top: 5%;
         ${FlexColumn}
         justify-content: space-evenly;
         background: #fff;
-        border-radius: 25px;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        
+        border-radius: 10px;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+        transition: all 0.25s linear;
+
+        :hover{
+            box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.25);
+        }
 
         img{
             width: 200px;

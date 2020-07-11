@@ -7,6 +7,7 @@ import Footer from '../components/footer';
 import Cold from './basicCold';
 import Mix from './mixItUp';
 import Hot from './basicHot';
+import Navbar from './nav';
 
 const Menu = () => {
 
@@ -27,6 +28,7 @@ const Menu = () => {
 
     return (
         <StyledMenu id="menu" showMenu={showMenu}>
+            <Navbar/>
             <div className="menu-content">
                 <button className="menu-button" onClick={displayMenu}>
                     <ion-icon name="cafe-outline"></ion-icon>

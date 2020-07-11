@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import { FlexRow, FlexColumn } from '../theme/defaultStyles';
 
 const StyledProfile = styled.div`
-margin-top: 2%;
-    width: 85%;
-    height: 80vh;
-    border-radius: 25px;
-    background-color: #ffffff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    
+    margin-top: 10%;
+    width: 50%;
+    height: 500px;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
 
     ${FlexRow};
 
@@ -45,22 +46,21 @@ margin-top: 2%;
         ${FlexRow};
 
         .profile-body-wrapper{
-            width: 85%;
-            height: 70%;
-            /* border: 1px solid black; */
+            width: 95%;
+            height: 90%;
+            
             ${FlexColumn}
             justify-content: space-evenly;
             
             .user-details{
-                width: 70%;
-                /* padding: 10px; */
-                /* border: 1px solid black; */
+                
+                width: 90%;
                 ${FlexRow}
-                justify-content: space-evenly;
-                /* text-align: left;
-                word-wrap: break-word; */
+                justify-content: space-between;
+                
                 p{
-                    width: 49%;
+                    
+                    width: 48%;
                     text-align: left;
                     word-wrap: break-word;
                     letter-spacing: 0.05em;
@@ -92,7 +92,7 @@ const UserProfile = () => {
                     <div className="user-details">
                         <p>house, society</p>
                         <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                            Lorem Ipsum is simply dummy text 
                         </p>
                     </div>
                     <div className="user-details">

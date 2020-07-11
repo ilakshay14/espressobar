@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { FlexRow } from '../theme/defaultStyles';
 
-const StyledNav = styled.nav`
+const StyledAppNav = styled.nav`
 
-    width: 100%;
+    width: calc(100% - 300px);
     height: 80px;
     position: fixed;
     top: 0;
+    left:300px;
     background-color: #ffffff;
     z-index: 100;
     ${FlexRow}
@@ -65,4 +66,4 @@ const StyledNav = styled.nav`
 
 `;
 
-export default StyledNav;
+export default StyledAppNav;

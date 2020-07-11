@@ -6,20 +6,21 @@ import DashboardNav from './sideNav';
 import UserProfile from './userProfile';
 import UserBookmarks from './userBookmarks';
 import UserCart from './userCart';
+import Navbar from '../components/nav';
+import AppNavbar from './app-nav';
+
 
 const StyledDashboard = styled.div`
-    margin-top: 85px;
     width: 100%;
-    height: auto;
-    min-height: 90vh;
-    background-color: #DBE0E6;
-
-    ${FlexRow}
+    height: 100vh;
+    background-color: #F5F7FB;
+    
+    /* ${FlexRow} */
 
     .dashboard-content{
-        margin-left: 20%;
+        margin-left: 300px;
         width: 80%;
-        height: 100%;
+        height: auto;
         ${FlexRow}
     }
 
@@ -30,6 +31,7 @@ const Dashboard = () => {
         <StyledDashboard>
             <DashboardNav />
             <div className="dashboard-content">
+                <AppNavbar/>
                 <Redirect from="/user" to="/user/profile" />
                 <Switch>
 

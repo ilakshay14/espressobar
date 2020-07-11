@@ -1,10 +1,13 @@
 import React from 'react';
-import StyledNav from '../styles/styledNav';
+import StyledAppNav from '../styles/styledAppNav';
 import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+
+
+
+const AppNavbar = () => {
     return (
-        <StyledNav>
+        <StyledAppNav>
             <div className="navbrand">
                 <a href="#home"><p>ES<br />PR</p></a>
             </div>
@@ -16,8 +19,8 @@ const Navbar = () => {
                 </ul>
             </div>
 
-        </StyledNav>
+        </StyledAppNav>
     );
 }
 
-export default Navbar;
+export default AppNavbar;
