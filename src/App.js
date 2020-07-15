@@ -1,16 +1,16 @@
 import React from 'react';
 import { Route, Link, Switch, Redirect, withRouter } from 'react-router-dom'
 
-import Header from './components/header';
-import StyledSection from './styles/styledSection';
-import Navbar from './components/nav';
-import Coffeehouse from './components/coffeehouse';
-import Coffee from './components/coffee';
-import Menu from './components/menu';
-import Footer from './components/footer';
-import Login from './components/login';
-import SignUp from './components/signup';
-import Dashboard from './user/dashboard';
+import Header from './components/header/header';
+import StyledSection from './theme/styledSection';
+import Navbar from './components/nav/nav';
+import Coffeehouse from './components/coffeehouse/coffeehouse';
+import Coffee from './components/coffee/coffee';
+import Menu from './components/menu/menu';
+import Footer from './components/footer/footer';
+import Login from './components/auth/login';
+import SignUp from './components/auth/signup';
+import Dashboard from './components/user/dashboard';
 
 const App = () => {
     return (
