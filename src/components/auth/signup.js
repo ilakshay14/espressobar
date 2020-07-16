@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import StyledLogin from './styles/styledLogin';
+import StyledSignUp from './styles/styledSignUp';
 
-const StyledSignUp = styled.div`
-    ${StyledLogin}
-    height: 550px;
-`;
 
 
 const SignUp = () => {
@@ -118,7 +114,19 @@ const SignUp = () => {
 
 
     return (
-        <StyledLogin>
+        <StyledSignUp>
+            <div className="login-context">
+                <div>
+                    <p>Sign Up</p>
+                    <p>
+                        Schedule a pick up, bookmark
+                        your favourites or be the first
+                        one to know about our
+                        new items!
+                    </p>
+                </div>
+            </div>
+            <div className="login-form">
             <form>
                 <p className="formError">{formError}</p>
 
@@ -156,7 +164,8 @@ const SignUp = () => {
                 </div>
 
             </form>
-        </StyledLogin>
+            </div>
+        </StyledSignUp>
     );
 }
 

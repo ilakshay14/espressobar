@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { FlexRow, FlexColumn } from '../../../theme/defaultStyles';
 
-const StyledLogin = styled.div`
+const StyledSignUp = styled.div`
     width: 100%;
     height: calc(100vh - 81px);
     margin-top: 80px;
@@ -40,7 +40,7 @@ const StyledLogin = styled.div`
 
         form {
             width: 440px;
-            height: 480px;
+            height: 550px;
             margin: auto;
 
             background-color: #1F3933;
@@ -118,4 +118,4 @@ const StyledLogin = styled.div`
 `;
 
 
-export default StyledLogin;
+export default StyledSignUp;

@@ -98,32 +98,44 @@ const Login = () => {
         return (
 
             <StyledLogin>
-                <form>
-                    <p className="formError">{formError}</p>
-
-                    <input type="email"
-                        placeholder="email"
-                        name="email"
-                        onBlur={onBlurHandler}
-                        required
-                    />
-
-                    <input type="password"
-                        placeholder="password"
-                        name="password"
-                        onBlur={onBlurHandler}
-                        required
-                    />
-
-                    <div className="contact-form-input">
-                        <button onClick={onFormSubmit}>login</button>
+                <div className="login-context">
+                    <div>
+                        <p>Login</p>
+                        <p>
+                            Welcome back! <br/>
+                            Let’s get you started
+                            with a cup of<br /> an awesome coffee!
+                        </p>
                     </div>
-                    <p className="new-user">new user?&nbsp;
-                    <u>
-                            <Link to="/signup">sign up</Link>
-                        </u>
-                    </p>
-                </form >
+                </div>
+                <div className="login-form">
+                    <form>
+                        <p className="formError">{formError}</p>
+
+                        <input type="email"
+                            placeholder="email"
+                            name="email"
+                            onBlur={onBlurHandler}
+                            required
+                        />
+
+                        <input type="password"
+                            placeholder="password"
+                            name="password"
+                            onBlur={onBlurHandler}
+                            required
+                        />
+
+                        <div className="contact-form-input">
+                            <button onClick={onFormSubmit}>login</button>
+                        </div>
+                        <p className="new-user">new user?&nbsp;
+                            <u>
+                                <Link to="/signup">sign up</Link>
+                            </u>
+                        </p>
+                    </form>
+                </div>
             </StyledLogin >
 
         );
