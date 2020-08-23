@@ -8,12 +8,10 @@ import Navbar from './components/nav/nav';
 import Coffeehouse from './components/coffeehouse/coffeehouse';
 import Coffee from './components/coffee/coffee';
 
-// import Menu from './components/menu/menu';
 const Menu = React.lazy(() => import('./components/menu/menu'));
+const Login = React.lazy(() => import('./components/auth/login'));
+const SignUp = React.lazy(() => import('./components/auth/signup'));
 
-import Footer from './components/footer/footer';
-import Login from './components/auth/login';
-import SignUp from './components/auth/signup';
 import Dashboard from './components/user/dashboard';
 
 import { Provider } from 'react-redux';
@@ -62,8 +60,16 @@ const App = () => {
                             <Menu/>
                         </Suspense>
                     )} />
-                    <Route path='/login' component={Login} />
-                    <Route path='/signup' component={SignUp} />
+                    <Route path='/login' render={() => (
+                        <Suspense fallback={<h1>loading...</h1>}>
+                            <Login/>
+                        </Suspense>
+                    )} />
+                    <Route path='/signup' render={() => (
+                        <Suspense fallback={<h1>loading...</h1>}>
+                            <SignUp/>
+                        </Suspense>
+                    )} />
                     <Route path='/user' component={Dashboard} />
 
                 </Switch>
