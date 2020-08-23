@@ -21,11 +21,6 @@ const Menu = () => {
         setDisplayState(false);
     }
 
-    // useEffect(() => {
-    //     console.log(showMenu);
-
-    // }, [showMenu]);
-
     return (
         <StyledMenu id="menu" showMenu={showMenu}>
             <Navbar/>

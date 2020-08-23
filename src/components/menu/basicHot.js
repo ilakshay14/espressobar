@@ -2,9 +2,14 @@ import React from 'react';
 import StyledSides from './styles/styledSides';
 import FoodCard from '../../UI/foodCard';
 
-import { hot } from '../../utils/menu.json';
+import { connect } from 'react-redux';
+import extractMenuItems from './helpers';
 
-const Hot = () => {
+const mapStateToProps = state => {
+    return { hotMenu: extractMenuItems('hot', state.menu) }
+};
+
+const HotItems = ({hotMenu}) => {
     return (
         <StyledSides>
             <div className="menu-margin">
@@ -12,9 +17,9 @@ const Hot = () => {
             </div>
             <div className="sides-options">
                 {
-                    hot.map(item => {
+                    hotMenu.map(item => {
                         return <FoodCard
-                            key={item.name}
+                            key={item._id}
                             classname='food-card'
                             src={`https://cdn.lakshay.xyz/${item.image}`}
                             caption={item.name}
@@ -28,5 +33,7 @@ const Hot = () => {
         </StyledSides>
     );
 }
+
+const Hot = connect(mapStateToProps)(HotItems);
 
 export default Hot;

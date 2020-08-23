@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { Route, Link, Switch, Redirect, withRouter } from 'react-router-dom'
 import axios from 'axios';
 
@@ -7,7 +7,10 @@ import StyledSection from './theme/styledSection';
 import Navbar from './components/nav/nav';
 import Coffeehouse from './components/coffeehouse/coffeehouse';
 import Coffee from './components/coffee/coffee';
-import Menu from './components/menu/menu';
+
+// import Menu from './components/menu/menu';
+const Menu = React.lazy(() => import('./components/menu/menu'));
+
 import Footer from './components/footer/footer';
 import Login from './components/auth/login';
 import SignUp from './components/auth/signup';
@@ -54,7 +57,11 @@ const App = () => {
 
                         // <Dashboard/>
                     )} />
-                    <Route path='/menu' component={Menu} />
+                    <Route path='/menu' render={() => (
+                        <Suspense fallback={<h1>loading...</h1>}>
+                            <Menu/>
+                        </Suspense>
+                    )} />
                     <Route path='/login' component={Login} />
                     <Route path='/signup' component={SignUp} />
                     <Route path='/user' component={Dashboard} />

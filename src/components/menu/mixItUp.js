@@ -4,7 +4,14 @@ import FoodCard from '../../UI/foodCard';
 
 import { mix } from '../../utils/menu.json';
 
-const Mix = () => {
+import { connect } from 'react-redux';
+import extractMenuItems from './helpers';
+
+const mapStateToProps = state => {
+    return { mixMenu: extractMenuItems('mix', state.menu) }
+};
+
+const MixItems = ({mixMenu}) => {
     return (
         <StyledSides>
             <div className="menu-margin">
@@ -12,9 +19,9 @@ const Mix = () => {
             </div>
             <div className="sides-options">
                 {
-                    mix.map(item => {
+                    mixMenu.map(item => {
                         return <FoodCard
-                            key={item.name}
+                            key={item._id}
                             classname='food-card'
                             src={`https://cdn.lakshay.xyz/${item.image}`}
                             caption={item.name}
@@ -28,5 +35,7 @@ const Mix = () => {
         </StyledSides>
     );
 }
+
+const Mix = connect(mapStateToProps)(MixItems);
 
 export default Mix;

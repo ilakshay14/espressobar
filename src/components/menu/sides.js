@@ -2,13 +2,14 @@ import React from 'react';
 
 import StyledSides from './styles/styledSides';
 import FoodCard from '../../UI/foodCard';
+import { connect } from 'react-redux';
+import extractMenuItems from './helpers';
 
-// import Menu from '../utils/menu';
+const mapStateToProps = state => {
+    return { sidesMenu: extractMenuItems('sides', state.menu) }
+};
 
-import { sides } from '../../utils/menu.json';
-
-
-const Sides = () => {
+const SidesItems = ({sidesMenu}) => {
 
     return (
         <StyledSides>
@@ -17,9 +18,9 @@ const Sides = () => {
             </div>
             <div className="sides-options">
                 {
-                    sides.map(item => {
+                    sidesMenu.map(item => {
                         return <FoodCard
-                            key={item.name}
+                            key={item._id}
                             classname='food-card'
                             src={`https://cdn.lakshay.xyz/${item.image}`}
                             caption={item.name}
@@ -34,5 +35,7 @@ const Sides = () => {
         </StyledSides>
     );
 }
+
+const Sides = connect(mapStateToProps)(SidesItems);
 
 export default Sides;
