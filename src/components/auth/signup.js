@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import StyledSignUp from './styles/styledSignUp';
-
+import { v4 as uuidv4 } from 'uuid';
+import demoUsers from '../../utils/users.json';
 
 
 const SignUp = () => {
@@ -67,6 +68,10 @@ const SignUp = () => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
+
+        console.log(`demo users === ${demoUsers}`);
+        //console.log(`demo id === ${uuidv4()}`);
+
         let validity = true;
         Object.values(_errors).map(element => {
             console.log(element);
@@ -89,6 +94,18 @@ const SignUp = () => {
         }
 
         setFormError('');
+        const userID = uuidv4();
+        demoUsers[userID] = {
+            id: userID,
+            firstname: _firstname,
+            lastname: _lastname,
+            email: _email,
+            password: _password,
+            cart: [],
+            bookmarks: []
+        }
+
+        console.log(`demo users === ${demoUsers}`);
         console.log('Form is valid');
 
 

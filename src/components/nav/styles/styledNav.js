@@ -28,7 +28,8 @@ const StyledNav = styled.nav`
     }
 
     .navmenu {
-        width: 250px;
+        //border: 1px solid black;
+        width: 350px;
         ${FlexRow}
         margin-right: 2%;
     }

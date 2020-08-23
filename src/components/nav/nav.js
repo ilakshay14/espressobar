@@ -11,8 +11,13 @@ const Navbar = () => {
             <div className="navmenu">
                 <ul>
                     <li><Link to="/">coffeehouse</Link></li>
-                    {/* <li><a href="#coffee">coffee</a></li> */}
+                    
                     <li><Link to="/menu">menu</Link></li>
+                    <li>
+                        <Link to="/signup">
+                            <ion-icon name="person-circle"></ion-icon>
+                        </Link>
+                    </li>
                 </ul>
             </div>
 
