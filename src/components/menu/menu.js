@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import StyledMenu from './styles/styledMenu';
 import { Route, Link, Switch } from 'react-router-dom'
-import Sides from './sides';
+
 import Anchor from '../../common/anchor';
 import Footer from '../footer/footer';
-import Cold from './basicCold';
-import Mix from './mixItUp';
-import Hot from './basicHot';
+
+const Cold = React.lazy(() => import('./basicCold'));
+const Hot = React.lazy(() => import('./basicHot'));
+const Mix = React.lazy(() => import('./mixItUp'));
+// import Mix from './mixItUp';
+// import Sides from './sides';
+const Sides = React.lazy(() => import('./sides'));
 import Navbar from '../nav/nav';
 
 const Menu = () => {
@@ -66,10 +70,28 @@ const Menu = () => {
                 <div className="menudisplay">
 
                     <Switch>
-                        <Route path='/menu/mix' exact component={Mix} />
-                        <Route path='/menu/hot' exact component={Hot} />
-                        <Route path='/menu/cold' exact component={Cold} />
-                        <Route path='/menu/sides' exact component={Sides} />
+                        {/* <Route path='/menu/mix' exact component={Mix} /> */}
+                        <Route path='/menu/mix' render={() => (
+                            <Suspense fallback={<h1>loading...</h1>}>
+                                <Mix/>
+                            </Suspense>
+                        )} />
+                        <Route path='/menu/hot' render={() => (
+                            <Suspense fallback={<h1>loading...</h1>}>
+                                <Hot/>
+                            </Suspense>
+                        )} />
+                        <Route path='/menu/cold' render={() => (
+                            <Suspense fallback={<h1>loading...</h1>}>
+                                <Cold/>
+                            </Suspense>
+                        )} />
+                        <Route path='/menu/sides' render={() => (
+                            <Suspense fallback={<h1>loading...</h1>}>
+                                <Sides/>
+                            </Suspense>
+                        )} />
+                        {/* <Route path='/menu/sides' exact component={Sides} /> */}
                         <Route path='/menu' exact render={() => (
                             <div className="menu-home">
                                 <h1>MENU</h1>
