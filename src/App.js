@@ -1,5 +1,5 @@
 import React, { useEffect, Suspense } from 'react';
-import { Route, Link, Switch, Redirect, withRouter } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import axios from 'axios';
 
 import Header from './components/header/header';
@@ -11,8 +11,7 @@ import Coffee from './components/coffee/coffee';
 const Menu = React.lazy(() => import('./components/menu/menu'));
 const Login = React.lazy(() => import('./components/auth/login'));
 const SignUp = React.lazy(() => import('./components/auth/signup'));
-
-import Dashboard from './components/user/dashboard';
+const Dashboard = React.lazy(() => import('./components/user/dashboard'));
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -39,6 +38,7 @@ const App = () => {
 
                 {/* <Redirect from="/" to="/signup" /> */}
                 <Switch>
+                    
                     <Route path='/' exact render={() => (
                         <>
                             <Navbar />
@@ -55,6 +55,7 @@ const App = () => {
 
                         // <Dashboard/>
                     )} />
+                    
                     <Route path='/menu' render={() => (
                         <Suspense fallback={<h1>loading...</h1>}>
                             <Menu/>
@@ -70,7 +71,11 @@ const App = () => {
                             <SignUp/>
                         </Suspense>
                     )} />
-                    <Route path='/user' component={Dashboard} />
+                    <Route path='/user' render={() => (
+                        <Suspense fallback={<h1>loading...</h1>}>
+                            <Dashboard/>
+                        </Suspense>
+                    )} />
 
                 </Switch>
 
