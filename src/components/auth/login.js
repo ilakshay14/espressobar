@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import StyledLogin from './styles/styledLogin';
 import { Link, Redirect } from 'react-router-dom';
-
+import axios from 'axios';
 
 const Login = () => {
 
@@ -22,14 +22,16 @@ const Login = () => {
         // alert(target.name);
         switch (target.name) {
             case "password":
+                console.log(`password ==== ${target.value}`);
                 if (target.value.length === 0) {
-                    _errors.password = 'Password cannot be empty'
+                    _errors.password = 'Password cannot be empty';
                     break
                 }
                 _password = target.value;
                 break;
 
             case "email":
+                console.log(`email ==== ${target.value}`);
                 let pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
                 if (pattern.test(target.value)) {
@@ -37,7 +39,7 @@ const Login = () => {
                     break;
                 }
                 else {
-                    _errors.email = 'Invalid email number'
+                    _errors.email = 'Invalid email number';
                     break
                 }
             default:
@@ -68,25 +70,20 @@ const Login = () => {
         }
 
         setFormError('');
-        console.log('Form is valid');
-        setRedirect('/home');
+        //console.log('Form is valid');
+        //TODO set dispatch action === USER_LOGIN with payload as access token
+        //setRedirect('/user');
 
 
-        // const postData = {
-        //     name: this._name,
-        //     phone: this._phone,
-        //     email: this._email,
-        //     message: this._message,
-        // }
-        // axios.post(
-        //     'https://oompqcn535.execute-api.ap-south-1.amazonaws.com/dev/api/nazara/submitform',
-        //     { ...postData },
-        //     { headers: { "x-api-key": "yGNijWbKAE63Ch84TtCVDaS53nLiko2y88Not6ht" } }
+        axios.post(
+            'http://localhost:3000/signin',
+            { "emailId": _email,
+            "password": _password }
 
-        // ).then(response => {
-        //     console.log(response)
-        //     this.setState({ showForm: false })
-        // }).catch(err => console.error(err));
+        ).then(response => {
+            console.log(response)
+            // this.setState({ showForm: false })
+        }).catch(err => console.error(err));
 
     }
 

@@ -13,29 +13,26 @@ const Login = React.lazy(() => import('./components/auth/login'));
 const SignUp = React.lazy(() => import('./components/auth/signup'));
 const Dashboard = React.lazy(() => import('./components/user/dashboard'));
 
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import rootReducer from './reducers/root';
 import { ADD_MENU } from './constants/action.constants';
-
-const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+import { useDispatch } from 'react-redux';
 
 const App = () => {
+    const dispatch = useDispatch();
+
     useEffect(()=> {
         axios.get('http://localhost:3000/menu')
             .then(response => {
                 console.log(response.data.menu);
-                store.dispatch({
+                dispatch({
                     type: ADD_MENU,
                     payload: response.data.menu
                 })
             })
             .catch(err => console.log(err));
     }, []);
-    return (
-        <Provider store={store}>
-            <div>
 
+    return (
+            <div>
                 {/* <Redirect from="/" to="/signup" /> */}
                 <Switch>
                     
@@ -78,10 +75,7 @@ const App = () => {
                     )} />
 
                 </Switch>
-
-                {/* <Dashboard /> */}
             </div>
-        </Provider>
     );
 
 }
