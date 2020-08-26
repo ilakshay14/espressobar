@@ -31,6 +31,7 @@ const App = () => {
             .catch(err => console.log(err));
     }, []);
 
+
     return (
             <div>
                 {/* <Redirect from="/" to="/signup" /> */}
@@ -39,7 +40,7 @@ const App = () => {
                     
                     <Route path='/' exact render={() => (
                         <>
-                            {/* <Navbar /> */}
+                            <Navbar />
                             <StyledSection>
                                 <Header />
                             </StyledSection>

@@ -81,14 +81,12 @@ const Login = () => {
             "password": _password }
 
         ).then(response => {
-            console.log(response.data)
-            
             dispatch({
                 type: USER_LOGIN,
                 payload: response.data
             });
+            localStorage.setItem("user", JSON.stringify(response.data));
             setRedirect('/user');
-            // this.setState({ showForm: false })
         }).catch(err => console.error(err));
 
     }

@@ -1,18 +1,27 @@
 import React, { useState } from 'react';
 import StyledSideNav from './styles/styledSideNave';
-import { NavLink } from 'react-router-dom'
+import { NavLink, Redirect } from 'react-router-dom'
 
 
 const DashboardNav = () => {
 
     const [chevPos, setChevPos] = useState(1);
+    const [redirect, setRedirect] = useState(null);
 
+    const logout=()=>{
+        localStorage.removeItem("user");
+        setRedirect('/');
+    }
 
+    if (redirect) {
+        return <Redirect to={redirect} />
+    }
+    
     return (
         <StyledSideNav>
             <div className="nav-head">
                 <div className="user-image">
-                    <img src="https://source.unsplash.com/400x400/?avatar" />
+                    <img src="https://source.unsplash.com/400x400/?face" />
                 </div>
             </div>
             <div className="nav-body">
@@ -54,7 +63,7 @@ const DashboardNav = () => {
                     </li>
                     <li>
                         {/* <Link to="/home"></Link> */}
-                        <p>
+                        <p onClick={logout}>
                             <ion-icon name="log-out-outline"></ion-icon>
                             Logout
                         </p>
