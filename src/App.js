@@ -34,11 +34,12 @@ const App = () => {
     return (
             <div>
                 {/* <Redirect from="/" to="/signup" /> */}
+                
                 <Switch>
                     
                     <Route path='/' exact render={() => (
                         <>
-                            <Navbar />
+                            {/* <Navbar /> */}
                             <StyledSection>
                                 <Header />
                             </StyledSection>
@@ -60,11 +61,13 @@ const App = () => {
                     )} />
                     <Route path='/login' render={() => (
                         <Suspense fallback={<h1>loading...</h1>}>
+                            <Navbar />
                             <Login/>
                         </Suspense>
                     )} />
                     <Route path='/signup' render={() => (
                         <Suspense fallback={<h1>loading...</h1>}>
+                            <Navbar />
                             <SignUp/>
                         </Suspense>
                     )} />

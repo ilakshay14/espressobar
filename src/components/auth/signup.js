@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import StyledSignUp from './styles/styledSignUp';
 import { v4 as uuidv4 } from 'uuid';
 import demoUsers from '../../utils/users.json';
+import { Link } from 'react-router-dom';
 
 
 const SignUp = () => {
@@ -39,7 +39,7 @@ const SignUp = () => {
                     break;
                 }
                 else {
-                    _errors.email = 'Invalid email number'
+                    _errors.email = 'Invalid email'
                     break
                 }
 
@@ -179,6 +179,13 @@ const SignUp = () => {
                 <div className="contact-form-input">
                     <button onClick={onFormSubmit}>sign up</button>
                 </div>
+
+                <p className="login-link">already a user? &nbsp;
+                        <Link to="/login">
+                            sign in!
+                        </Link>
+                        
+                </p>
 
             </form>
             </div>

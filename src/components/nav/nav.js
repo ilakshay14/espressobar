@@ -14,7 +14,7 @@ const Navbar = () => {
                     
                     <li><Link to="/menu">menu</Link></li>
                     <li>
-                        <Link to="/signup">
+                        <Link to="/login">
                             <ion-icon name="person-circle"></ion-icon>
                         </Link>
                     </li>

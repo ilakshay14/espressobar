@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FlexRow, FlexColumn } from '../../theme/defaultStyles';
+import { connect } from 'react-redux';
 
 const StyledProfile = styled.div`
     
@@ -74,18 +75,25 @@ const StyledProfile = styled.div`
     }
 `;
 
-const UserProfile = () => {
+const mapStateToProps = state => {
+    return { userDetails: state.user }
+};
+
+const User = ({userDetails}) => {
     return (
         <StyledProfile>
             <div className="profile-header">
                 <div className="profile-header-wrapper">
-                    <p>Lakshay Malhotra</p>
+                <p>{`${userDetails?.firstname|| ""} ${userDetails?.lastname|| ""}`}</p>
                     <ion-icon name="create-outline"></ion-icon>
                 </div>
             </div>
             <div className="profile-body">
                 <div className="profile-body-wrapper">
-                    <div className="user-details">
+                    <h1>
+                        Profile features <br/> Coming soon.
+                    </h1>
+                    {/* <div className="user-details">
                         <p>phone</p>
                         <p>+001111111111</p>
                     </div>
@@ -110,11 +118,13 @@ const UserProfile = () => {
                     <div className="user-details">
                         <p>pincode</p>
                         <p>111111</p>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </StyledProfile>
     );
 }
+
+const UserProfile = connect(mapStateToProps)(User);
 
 export default UserProfile;

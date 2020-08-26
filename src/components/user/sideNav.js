@@ -11,7 +11,9 @@ const DashboardNav = () => {
     return (
         <StyledSideNav>
             <div className="nav-head">
-                <div className="user-image"></div>
+                <div className="user-image">
+                    <img src="https://source.unsplash.com/400x400/?avatar" />
+                </div>
             </div>
             <div className="nav-body">
                 <ul>

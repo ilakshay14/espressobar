@@ -22,6 +22,11 @@ const StyledSideNav = styled.div`
             height: 200px;
             border-radius: 50%;
             background-color: #ccc;
+
+            img{
+                width: 100%;
+                border-radius: 50%;
+            }
         }
 
     }

@@ -1,4 +1,5 @@
 import { ADD_MENU } from "../constants/action.constants";
+import { USER_LOGIN } from "../constants/action.constants";
 
 const initialState = {
     menu: [],
@@ -12,7 +13,14 @@ const rootReducer = (state = initialState, action) => {
             menu: [...action.payload]
         })
     }
-    // console.log('root reducer', state, action);
+
+    if(action.type ===  USER_LOGIN){
+        return Object.assign({}, state, {
+            //menu: state.menu.concat(action.payload)
+            user: {...action.payload}
+        })
+    }
+    
     return state;
 }
 

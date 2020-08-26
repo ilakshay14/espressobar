@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import StyledLogin from './styles/styledLogin';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { USER_LOGIN } from '../../constants/action.constants';
 
 const Login = () => {
 
@@ -13,13 +15,11 @@ const Login = () => {
         email: '',
     }
 
-    const [showForm, setShowForm] = useState(true);
-    const [isFormValid, setFormValid] = useState(false);
     const [formError, setFormError] = useState('');
     const [redirect, setRedirect] = useState(null);
+    const dispatch = useDispatch();
 
     const onBlurHandler = ({ target }) => {
-        // alert(target.name);
         switch (target.name) {
             case "password":
                 console.log(`password ==== ${target.value}`);
@@ -39,7 +39,7 @@ const Login = () => {
                     break;
                 }
                 else {
-                    _errors.email = 'Invalid email number';
+                    _errors.email = 'Invalid email';
                     break
                 }
             default:
@@ -74,14 +74,20 @@ const Login = () => {
         //TODO set dispatch action === USER_LOGIN with payload as access token
         //setRedirect('/user');
 
-
+        
         axios.post(
             'http://localhost:3000/signin',
             { "emailId": _email,
             "password": _password }
 
         ).then(response => {
-            console.log(response)
+            console.log(response.data)
+            
+            dispatch({
+                type: USER_LOGIN,
+                payload: response.data
+            });
+            setRedirect('/user');
             // this.setState({ showForm: false })
         }).catch(err => console.error(err));
 

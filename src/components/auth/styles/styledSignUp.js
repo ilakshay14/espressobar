@@ -49,10 +49,23 @@ const StyledSignUp = styled.div`
 
             ${FlexColumn}
 
-            p {
-                margin: 3% auto;
+
+            .formError {
                 color: red;
+                margin: 3% auto;
                 font-size: 18px;
+            }
+
+            .login-link{
+                color: #ffffff;
+                margin: auto;
+                
+                a{
+                    color: white;
+                    :hover{
+                        text-decoration: underline;
+                    }
+                }
             }
 
             .new-user{
@@ -113,6 +126,8 @@ const StyledSignUp = styled.div`
                     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
                 }
             }
+
+            
         }
     }
 `;
