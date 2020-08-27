@@ -21,7 +21,7 @@ const DashboardNav = () => {
         <StyledSideNav>
             <div className="nav-head">
                 <div className="user-image">
-                    <img src="https://source.unsplash.com/400x400/?face" />
+                    <img src="https://source.unsplash.com/200x200/?dogs" />
                 </div>
             </div>
             <div className="nav-body">

@@ -1,44 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FlexRow, FlexColumn } from '../../theme/defaultStyles';
-
-const initialState = [
-    {
-        "name": "scrambled eggs",
-        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "price": "100 INR"
-    },
-    {
-        "name": "scrambled eggs",
-        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "price": "100 INR"
-    },
-    {
-        "name": "scrambled eggs",
-        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "price": "100 INR"
-    },
-    {
-        "name": "scrambled eggs",
-        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "price": "100 INR"
-    },
-    {
-        "name": "scrambled eggs",
-        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "price": "100 INR"
-    },
-    {
-        "name": "scrambled eggs",
-        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "price": "100 INR"
-    },
-    {
-        "name": "scrambled eggs",
-        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "price": "100 INR"
-    }
-]
+import { connect } from 'react-redux';
 
 const StyledCart = styled.div`
     margin-top: 5%;
@@ -216,52 +179,64 @@ const StyledCart = styled.div`
     }
 `;
 
-const UserCart = () => {
-    return (
-        <StyledCart>
-            <div className="cart-A">
+const mapStateToProps = state => {
+    return { userCart: state.user.cart }
+};
 
-                {
-                    initialState.map(item => {
-                        return <div className="cart-item">
-                            <div className="cart-item-img">
-                                <img src="https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80" />
-                            </div>
-                            <p>1 x</p>
-                            <p className="item-name">Classic Scrambled Eggs</p>
-                            <p className="item-price">100 INR</p>
-                            <a><ion-icon name="trash-outline"></ion-icon></a>
+const Cart = ({ userCart }) => {
+    // const toRender = userCart?.length > 0 ?
+    //     (<>
+    //         <div className="cart-A">
 
-                        </div>
-                    })
-                }
-            </div>
-            <div className="cart-B">
-                <div className="cart-wrapper">
-                    <div className="pickup-time">
-                        <p>Pick up Time</p>
-                        <div className="time">
-                            <button>
-                                <ion-icon name="time-outline"></ion-icon>
-                            </button>
-                            <p>35 min</p>
-                        </div>
-                    </div>
-                    <div className="checkout">
-                        <div className="final-price">
-                            <p className="total-label">Total:</p>
-                            <p className="total-price">300 INR</p>
-                        </div>
-                        <div className="checkout-line"></div>
-                        <button className="checkout-button">
-                            Checkout
-                            <ion-icon name="chevron-forward-outline"></ion-icon>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </StyledCart>
-    );
+    //             {
+    //                 initialState.map(item => {
+    //                     return <div className="cart-item">
+    //                         <div className="cart-item-img">
+    //                             <img src="https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80" />
+    //                         </div>
+    //                         <p>1 x</p>
+    //                         <p className="item-name">Classic Scrambled Eggs</p>
+    //                         <p className="item-price">100 INR</p>
+    //                         <a><ion-icon name="trash-outline"></ion-icon></a>
+
+    //                     </div>
+    //                 })
+    //             }
+    //         </div>
+    //         <div className="cart-B">
+    //             <div className="cart-wrapper">
+    //                 <div className="pickup-time">
+    //                     <p>Pick up Time</p>
+    //                     <div className="time">
+    //                         <button>
+    //                             <ion-icon name="time-outline"></ion-icon>
+    //                         </button>
+    //                         <p>35 min</p>
+    //                     </div>
+    //                 </div>
+    //                 <div className="checkout">
+    //                     <div className="final-price">
+    //                         <p className="total-label">Total:</p>
+    //                         <p className="total-price">300 INR</p>
+    //                     </div>
+    //                     <div className="checkout-line"></div>
+    //                     <button className="checkout-button">
+    //                         Checkout
+    //                         <ion-icon name="chevron-forward-outline"></ion-icon>
+    //                     </button>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     </>
+    //     ) : <h1>Your Cart is Empty.</h1>;
+
+    return <StyledCart>
+        {/* {toRender} */}
+        <h1>Online orders are coming soon!</h1>
+    </StyledCart>
+
 }
+
+const UserCart = connect(mapStateToProps)(Cart);
 
 export default UserCart;

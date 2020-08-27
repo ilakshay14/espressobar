@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import StyledLogin from './styles/styledLogin';
 import { Link, Redirect } from 'react-router-dom';
@@ -18,6 +18,23 @@ const Login = () => {
     const [formError, setFormError] = useState('');
     const [redirect, setRedirect] = useState(null);
     const dispatch = useDispatch();
+
+    useEffect(()=>{
+        const existingUser = JSON.parse(localStorage.getItem('user'));
+        // console.log(localStorage.getItem('user'));
+
+        if(existingUser){
+            console.log('user exists');
+            dispatch({
+                type: USER_LOGIN,
+                payload: {...existingUser}
+            });
+            setRedirect('/user');
+        }
+        else{
+            console.log('no user found');
+        }
+    },[]);
 
     const onBlurHandler = ({ target }) => {
         switch (target.name) {
@@ -81,6 +98,7 @@ const Login = () => {
             "password": _password }
 
         ).then(response => {
+            
             dispatch({
                 type: USER_LOGIN,
                 payload: response.data

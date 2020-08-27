@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FlexRow, FlexColumn } from '../../theme/defaultStyles';
 import FoodCard from '../../UI/foodCard';
-
+import { connect } from 'react-redux';
 const StyledBookmarks = styled.div`
     margin-top: 10%;
     width: 80%;
@@ -81,59 +81,16 @@ const StyledBookmarks = styled.div`
     
 `;
 
-const initialState = [
-    {
-        "name": "scrambled eggs",
-        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "price": "100 INR"
-    },
-    {
-        "name": "scrambled eggs",
-        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "price": "100 INR"
-    },
-    {
-        "name": "scrambled eggs",
-        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "price": "100 INR"
-    },
-    {
-        "name": "scrambled eggs",
-        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "price": "100 INR"
-    },
-    {
-        "name": "scrambled eggs",
-        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "price": "100 INR"
-    },
-    {
-        "name": "scrambled eggs",
-        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "price": "100 INR"
-    },
-    {
-        "name": "scrambled eggs",
-        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "price": "100 INR"
-    },
-    {
-        "name": "scrambled eggs",
-        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "price": "100 INR"
-    },
-    {
-        "name": "scrambled eggs",
-        "image": "https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80",
-        "price": "100 INR"
-    },
-]
+const mapStateToProps = state => {
+    return { userBookmarks: state.user.bookmarks }
+};
 
-const UserBookmarks = () => {
-    return (
-        <StyledBookmarks>
-            {
-                initialState.map(item => {
+const Bookmarks = ({userBookmarks}) => {
+
+    const toRender = userBookmarks?.length > 0 ? (
+        <>
+        {
+                userBookmarks.map(item => {
                     return <FoodCard
                         classname='food-card'
                         src={item.image}
@@ -145,15 +102,16 @@ const UserBookmarks = () => {
 
                 })
             }
-            {/* <FoodCard
-                classname='food-card'
-                src={Eggs}
-                caption='Salted Fries'
-                price='60 INR'
-                buttonStyle='addToCart'
-            /> */}
+        </>
+    ):<h1>You haven't bookmarked anythng yet.</h1>;
+
+    return (
+        <StyledBookmarks>
+            {toRender}
         </StyledBookmarks>
     );
 }
+
+const UserBookmarks = connect(mapStateToProps)(Bookmarks);
 
 export default UserBookmarks;

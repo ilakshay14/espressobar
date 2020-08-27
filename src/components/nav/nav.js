@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import StyledNav from './styles/styledNav';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
 
 const Navbar = () => {
+
+    const [redirect, setRedirect] = useState(null);
+    const [username, setUserName] = useState(null);
+    const dispatch = useDispatch();
+    
+    useEffect(()=>{
+        const existingUser = JSON.parse(localStorage.getItem('user'));
+        // console.log(existingUser.firstname);
+
+        if(existingUser){
+            console.log('user exists');
+            setUserName(existingUser.firstname);
+        }
+        else{
+            console.log('no user found');
+        }
+    },[]);
+
+    if (redirect) {
+        return <Redirect to={redirect} />
+    }
+
     return (
         <StyledNav>
             <div className="navbrand">
@@ -16,6 +39,7 @@ const Navbar = () => {
                     <li>
                         <Link to="/login">
                             <ion-icon name="person-circle"></ion-icon>
+                            { username }
                         </Link>
                     </li>
                 </ul>
