@@ -7,7 +7,6 @@ import { useDispatch } from 'react-redux';
 import { USER_LOGIN } from '../../constants/action.constants';
 
 const Login = () => {
-
     let _password = '';
     let _email = '';
     let _errors = {
@@ -15,6 +14,7 @@ const Login = () => {
         email: '',
     }
 
+    const [userError, setUserError] = useState(false);
     const [formError, setFormError] = useState('');
     const [redirect, setRedirect] = useState(null);
     const dispatch = useDispatch();
@@ -105,7 +105,13 @@ const Login = () => {
             });
             localStorage.setItem("user", JSON.stringify(response.data));
             setRedirect('/user');
-        }).catch(err => console.error(err));
+        }).catch(err => {
+            // let message = JSON.stringify(err.message);
+            if(err.message.includes('404')){
+                console.log('in if');
+                setUserError('User not found. Please try again.');
+            }
+        });
 
     }
 
@@ -128,6 +134,7 @@ const Login = () => {
                     </div>
                 </div>
                 <div className="login-form">
+                    {userError}
                     <form>
                         <p className="formError">{formError}</p>
 

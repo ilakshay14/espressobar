@@ -12,7 +12,11 @@ const mapStateToProps = state => {
 };
 
 const ColdItems = ({coldMenu}) => {
-    console.log(coldMenu);
+    
+    // const addToCart = () => {
+
+    // }
+
     return (
         <StyledSides>
             <div className="menu-margin">
@@ -23,6 +27,7 @@ const ColdItems = ({coldMenu}) => {
                     coldMenu.map(item => {
                         return <FoodCard
                             key={item._id}
+                            id = {item._id}
                             classname='food-card'
                             src={`https://cdn.lakshay.xyz/${item.image}`}
                             caption={item.name}

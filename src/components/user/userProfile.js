@@ -94,7 +94,7 @@ const User = ({userDetails}) => {
                         Profile features <br/> Coming soon.
                     </h1>
                     {/* <div className="user-details">
-                        <p>phone</p>
+                        <sp>phone</sp>
                         <p>+001111111111</p>
                     </div>
                     <div className="user-details">

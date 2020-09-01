@@ -1,7 +1,11 @@
 import React from 'react';
 import Image from '../common/image';
 
-const FoodCard = ({ src, caption, classname, buttonStyle, price, bookmark }) => {
+const FoodCard = ({ id, src, caption, classname, buttonStyle, price, bookmark }) => {
+    const addToCart = () => {
+        console.log(`key = ${key} caption = ${caption}`);
+    }
+    
     return (
         <div className={classname}>
             <Image src={src} />
@@ -17,7 +21,7 @@ const FoodCard = ({ src, caption, classname, buttonStyle, price, bookmark }) => 
             </div>
 
             <p>{price}</p>
-            <button className={buttonStyle}>
+            <button className={buttonStyle} onClick={addToCart}>
                 <ion-icon name="cart-outline"></ion-icon>
             </button>
         </div>

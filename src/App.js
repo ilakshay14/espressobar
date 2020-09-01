@@ -15,23 +15,24 @@ const Dashboard = React.lazy(() => import('./components/user/dashboard'));
 
 import { ADD_MENU } from './constants/action.constants';
 import { useDispatch } from 'react-redux';
+import MessageScreen from './components/helpers/message.screen';
 
 const App = () => {
     const dispatch = useDispatch();
 
-    useEffect(()=> {
-        axios.get('http://localhost:3000/menu')
-            .then(response => {
-                console.log(response.data.menu);
-                dispatch({
-                    type: ADD_MENU,
-                    payload: response.data.menu
-                })
-            })
-            .catch(err => console.log(err));
+    // useEffect(()=> {
+    //     axios.get('http://localhost:3000/menu')
+    //         .then(response => {
+    //             console.log(response.data.menu);
+    //             dispatch({
+    //                 type: ADD_MENU,
+    //                 payload: response.data.menu
+    //             })
+    //         })
+    //         .catch(err => console.log(err));
 
         
-    }, []);
+    // }, []);
 
 
     return (
@@ -42,6 +43,7 @@ const App = () => {
                     
                     <Route path='/' exact render={() => (
                         <>
+                            {/* <MessageScreen/> */}
                             <Navbar />
                             <StyledSection>
                                 <Header />

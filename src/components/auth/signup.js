@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import StyledSignUp from './styles/styledSignUp';
-import { v4 as uuidv4 } from 'uuid';
-import demoUsers from '../../utils/users.json';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 const SignUp = () => {
@@ -16,16 +15,15 @@ const SignUp = () => {
         name: ''
     }
 
-    const [showForm, setShowForm] = useState(true);
-    const [isFormValid, setFormValid] = useState(false);
+    // const [showForm, setShowForm] = useState(true);
+    // const [isFormValid, setFormValid] = useState(false);
     const [formError, setFormError] = useState('');
 
     const onBlurHandler = ({ target }) => {
-        // alert(target.name);
         switch (target.name) {
             case "password":
-                if (target.value.length === 0) {
-                    _errors.password = 'Password cannot be empty'
+                if (target.value.length === 0 || target.value.length < 6) {
+                    _errors.password = 'Password should be atleast 6 characters'
                     break
                 }
                 _password = target.value;
@@ -36,6 +34,7 @@ const SignUp = () => {
 
                 if (pattern.test(target.value)) {
                     _email = target.value;
+                    _errors.email = '';
                     break;
                 }
                 else {
@@ -48,6 +47,7 @@ const SignUp = () => {
                     _errors.name = 'Name cannot be empty'
                     break
                 }
+                _errors.name = '';
                 _firstname = target.value;
                 break;
 
@@ -57,6 +57,7 @@ const SignUp = () => {
                     _errors.name = 'Name cannot be empty'
                     break
                 }
+                _errors._lastname = '';
                 _lastname = target.value;
                 break;
 
@@ -68,9 +69,6 @@ const SignUp = () => {
 
     const onFormSubmit = (event) => {
         event.preventDefault();
-
-        console.log(`demo users === ${demoUsers}`);
-        //console.log(`demo id === ${uuidv4()}`);
 
         let validity = true;
         Object.values(_errors).map(element => {
@@ -94,37 +92,23 @@ const SignUp = () => {
         }
 
         setFormError('');
-        const userID = uuidv4();
-        demoUsers[userID] = {
-            id: userID,
+        // const userID = uuidv4();
+        let user = {
             firstname: _firstname,
             lastname: _lastname,
-            email: _email,
-            password: _password,
-            cart: [],
-            bookmarks: []
+            emailId: _email,
+            password: _password
         }
 
-        console.log(`demo users === ${demoUsers}`);
+        console.log(`user === ${user}`);
         console.log('Form is valid');
 
-
-
-        // const postData = {
-        //     name: this._name,
-        //     phone: this._phone,
-        //     email: this._email,
-        //     message: this._message,
-        // }
-        // axios.post(
-        //     'https://oompqcn535.execute-api.ap-south-1.amazonaws.com/dev/api/nazara/submitform',
-        //     { ...postData },
-        //     { headers: { "x-api-key": "yGNijWbKAE63Ch84TtCVDaS53nLiko2y88Not6ht" } }
-
-        // ).then(response => {
-        //     console.log(response)
-        //     this.setState({ showForm: false })
-        // }).catch(err => console.error(err));
+        
+        axios.post(
+            'http://localhost:3000/signup',
+            { ...user }
+        ).then(response => console.log(`response = ${JSON.stringify(response)}`))
+        .catch(err => console.log(`err = ${JSON.stringify(err)}`));
 
     }
 
