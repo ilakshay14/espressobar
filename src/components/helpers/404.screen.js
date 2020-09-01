@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import StyledScreen from './screen.styled';
+import styled from 'styled-components';
 
-const MessageScreen = () => {
+const Screen = styled(StyledScreen)`
+    background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://cdn.lakshay.xyz/espresso-bar/userna.jpg');
+`;
+
+const ErrorScreen = () => {
 
     const [redirect, setRedirect] = useState(false);
 
@@ -11,22 +16,22 @@ const MessageScreen = () => {
     }
 
     if(redirect){
-        return <Redirect to="/menu"/>
+        return <Redirect to="/signup"/>
     }
     return ( 
-        <StyledScreen>
+        <Screen>
             <div className="screen__content">
                 {/* <p className="screen__content__heading">Page not found</p> */}
-                <p className="screen__content__heading">Coffee mug is empty</p>
+                <p className="screen__content__heading">Is this your first visit?</p>
                 <p className="screen__content_text">
-                    Uh oh! Coffee didn't brew peroperly. Let's try again, and we'll brew a delicious coffee.
+                    Uh oh! We couldn't find you. Seems like this is your first visit, we would like to know more about you.
                 </p>
                 <button onClick={redirectToHome}>
-                    home
+                    sign up
                 </button>
                 
             </div>
-        </StyledScreen>
+        </Screen>
     );
 }
-export default MessageScreen;
+export default ErrorScreen;

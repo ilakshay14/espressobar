@@ -16,6 +16,7 @@ const Dashboard = React.lazy(() => import('./components/user/dashboard'));
 import { ADD_MENU } from './constants/action.constants';
 import { useDispatch } from 'react-redux';
 import MessageScreen from './components/helpers/message.screen';
+import ErrorScreen from './components/helpers/404.screen';
 
 const App = () => {
     const dispatch = useDispatch();
@@ -44,7 +45,8 @@ const App = () => {
                     <Route path='/' exact render={() => (
                         <>
                             {/* <MessageScreen/> */}
-                            <Navbar />
+                            <ErrorScreen/>
+                            {/* <Navbar />
                             <StyledSection>
                                 <Header />
                             </StyledSection>
@@ -53,7 +55,7 @@ const App = () => {
                             </StyledSection>
                             <StyledSection>
                                 <Coffee />
-                            </StyledSection>
+                            </StyledSection> */}
                         </>
 
                         // <Dashboard/>
