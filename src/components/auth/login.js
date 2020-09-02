@@ -14,7 +14,6 @@ const Login = () => {
         email: '',
     }
 
-    const [userError, setUserError] = useState(false);
     const [formError, setFormError] = useState('');
     const [redirect, setRedirect] = useState(null);
     const dispatch = useDispatch();
@@ -87,10 +86,6 @@ const Login = () => {
         }
 
         setFormError('');
-        //console.log('Form is valid');
-        //TODO set dispatch action === USER_LOGIN with payload as access token
-        //setRedirect('/user');
-
         
         axios.post(
             'http://localhost:3000/signin',
@@ -106,13 +101,10 @@ const Login = () => {
             localStorage.setItem("user", JSON.stringify(response.data));
             setRedirect('/user');
         }).catch(err => {
-            // let message = JSON.stringify(err.message);
             if(err.message.includes('404')){
-                console.log('in if');
-                setUserError('User not found. Please try again.');
+                setRedirect('/newuser');
             }
         });
-
     }
 
     if (redirect) {
@@ -134,7 +126,6 @@ const Login = () => {
                     </div>
                 </div>
                 <div className="login-form">
-                    {userError}
                     <form>
                         <p className="formError">{formError}</p>
 

@@ -21,7 +21,6 @@ const ErrorScreen = () => {
     return ( 
         <Screen>
             <div className="screen__content">
-                {/* <p className="screen__content__heading">Page not found</p> */}
                 <p className="screen__content__heading">Is this your first visit?</p>
                 <p className="screen__content_text">
                     Uh oh! We couldn't find you. Seems like this is your first visit, we would like to know more about you.

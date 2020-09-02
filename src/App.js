@@ -15,25 +15,27 @@ const Dashboard = React.lazy(() => import('./components/user/dashboard'));
 
 import { ADD_MENU } from './constants/action.constants';
 import { useDispatch } from 'react-redux';
-import MessageScreen from './components/helpers/message.screen';
-import ErrorScreen from './components/helpers/404.screen';
+
+const MessageScreen = React.lazy(() => import('./components/helpers/message.screen'));
+
+const ErrorScreen = React.lazy(() => import('./components/helpers/404.screen'));
 
 const App = () => {
     const dispatch = useDispatch();
 
-    // useEffect(()=> {
-    //     axios.get('http://localhost:3000/menu')
-    //         .then(response => {
-    //             console.log(response.data.menu);
-    //             dispatch({
-    //                 type: ADD_MENU,
-    //                 payload: response.data.menu
-    //             })
-    //         })
-    //         .catch(err => console.log(err));
+    useEffect(()=> {
+        axios.get('http://localhost:3000/menu')
+            .then(response => {
+                console.log(response.data.menu);
+                dispatch({
+                    type: ADD_MENU,
+                    payload: response.data.menu
+                })
+            })
+            .catch(err => console.log(err));
 
         
-    // }, []);
+    }, []);
 
 
     return (
@@ -45,8 +47,8 @@ const App = () => {
                     <Route path='/' exact render={() => (
                         <>
                             {/* <MessageScreen/> */}
-                            <ErrorScreen/>
-                            {/* <Navbar />
+                            {/* <ErrorScreen/> */}
+                            <Navbar />
                             <StyledSection>
                                 <Header />
                             </StyledSection>
@@ -55,7 +57,7 @@ const App = () => {
                             </StyledSection>
                             <StyledSection>
                                 <Coffee />
-                            </StyledSection> */}
+                            </StyledSection>
                         </>
 
                         // <Dashboard/>
@@ -66,21 +68,36 @@ const App = () => {
                             <Menu/>
                         </Suspense>
                     )} />
+                    
                     <Route path='/login' render={() => (
                         <Suspense fallback={<h1>loading...</h1>}>
                             <Navbar />
                             <Login/>
                         </Suspense>
                     )} />
+
                     <Route path='/signup' render={() => (
                         <Suspense fallback={<h1>loading...</h1>}>
                             <Navbar />
                             <SignUp/>
                         </Suspense>
                     )} />
+
                     <Route path='/user' render={() => (
                         <Suspense fallback={<h1>loading...</h1>}>
                             <Dashboard/>
+                        </Suspense>
+                    )} />
+
+                    <Route path='/newuser' render={() => (
+                        <Suspense fallback={<h1>loading...</h1>}>
+                            <ErrorScreen/>
+                        </Suspense>
+                    )} />
+
+                    <Route path='/error' render={() => (
+                        <Suspense fallback={<h1>loading...</h1>}>
+                            <MessageScreen/>
                         </Suspense>
                     )} />
 

@@ -15,8 +15,6 @@ const SignUp = () => {
         name: ''
     }
 
-    // const [showForm, setShowForm] = useState(true);
-    // const [isFormValid, setFormValid] = useState(false);
     const [formError, setFormError] = useState('');
 
     const onBlurHandler = ({ target }) => {
@@ -92,7 +90,7 @@ const SignUp = () => {
         }
 
         setFormError('');
-        // const userID = uuidv4();
+        
         let user = {
             firstname: _firstname,
             lastname: _lastname,
