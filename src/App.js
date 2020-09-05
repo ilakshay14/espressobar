@@ -13,7 +13,7 @@ const Login = React.lazy(() => import('./components/auth/login'));
 const SignUp = React.lazy(() => import('./components/auth/signup'));
 const Dashboard = React.lazy(() => import('./components/user/dashboard'));
 
-import { ADD_MENU } from './constants/action.constants';
+import { ADD_MENU, USER_LOGIN } from './constants/action.constants';
 import { useDispatch } from 'react-redux';
 
 const MessageScreen = React.lazy(() => import('./components/helpers/message.screen'));
@@ -26,13 +26,25 @@ const App = () => {
     useEffect(()=> {
         axios.get('http://localhost:3000/menu')
             .then(response => {
-                console.log(response.data.menu);
                 dispatch({
                     type: ADD_MENU,
                     payload: response.data.menu
                 })
             })
             .catch(err => console.log(err));
+
+            const existingUser = JSON.parse(localStorage.getItem('user'));
+        // console.log(localStorage.getItem('user'));
+
+        if(existingUser){
+            dispatch({
+                type: USER_LOGIN,
+                payload: {...existingUser}
+            });
+        }
+        else{
+            console.log('no user found');
+        }
 
         
     }, []);

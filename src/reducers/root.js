@@ -1,4 +1,4 @@
-import { ADD_MENU } from "../constants/action.constants";
+import { ADD_MENU, ADD_TO_CART, UPDATE_CART } from "../constants/action.constants";
 import { USER_LOGIN } from "../constants/action.constants";
 
 const initialState = {
@@ -19,6 +19,13 @@ const rootReducer = (state = initialState, action) => {
             //menu: state.menu.concat(action.payload)
             user: {...action.payload}
         })
+    }
+
+    if(action.type ===  UPDATE_CART){
+        state.user.cart = action.payload;
+        console.log(state.user.cart);
+        // console.log(`X === ${JSON.stringify(x)}`);
+        
     }
     
     return state;

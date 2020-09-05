@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import StyledMenu from './styles/styledMenu';
 import { Route, Link, Switch } from 'react-router-dom'
-
+import axios from 'axios';
 import Anchor from '../../common/anchor';
 import Footer from '../footer/footer';
 
@@ -12,8 +12,20 @@ const Mix = React.lazy(() => import('./mixItUp'));
 // import Sides from './sides';
 const Sides = React.lazy(() => import('./sides'));
 import Navbar from '../nav/nav';
+import { UPDATE_CART } from '../../constants/action.constants';
+import { connect } from 'react-redux';
 
-const Menu = () => {
+const mapDispatchToProps = (dispatch) => {
+    return({
+        updateCart: (id) => { dispatch({
+            type: UPDATE_CART,
+            payload: id
+        })}
+    })
+};
+
+
+const MenuComponent = ({updateCart}) => {
 
     const [showMenu, setDisplayState] = useState(false);
 
@@ -24,6 +36,22 @@ const Menu = () => {
     const hideMenu = () => {
         setDisplayState(false);
     }
+
+    useEffect(() => {
+        let user = JSON.parse(localStorage.getItem('user'));
+
+        axios.post('http://localhost:3000/updatecart',
+        {
+            "_id": user.id
+        }).then(response => {
+            console.log(response);
+            if(response.status === 200){
+                console.log(response.data.cart);
+                updateCart(response.data.cart);
+            }
+        })
+        .catch(error => console.log(error));
+    }, []);
 
     return (
         <StyledMenu id="menu" showMenu={showMenu}>
@@ -106,5 +134,7 @@ const Menu = () => {
         </StyledMenu>
     );
 }
+
+const Menu = connect(null, mapDispatchToProps)(MenuComponent)
 
 export default Menu;

@@ -33,7 +33,7 @@ const StyledSides = styled.div`
         
         .food-card{
             flex: 0 0 320px;
-            height: 400px;
+            height: 500px;
             margin: 3% auto;
             text-align: center;
             ${FlexColumn}
@@ -63,6 +63,29 @@ const StyledSides = styled.div`
                     vertical-align: middle;
                     cursor: pointer;
                     margin-left: 5px;
+                }
+            }
+
+            .hidden{
+                /* display: none !important; */
+                visibility: hidden;
+            }
+
+            .qty{
+                /* border: 1px solid black; */
+                ${FlexRow}
+
+                width: 50%;
+                align-self: center;
+                justify-content: space-evenly;
+
+                button{
+                    width: 30px;
+                    cursor: pointer;
+                }
+
+                p{
+                    margin: auto;
                 }
             }
         }

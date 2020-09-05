@@ -11,9 +11,6 @@ const mapStateToProps = state => {
     return { coldMenu: extractMenuItems('cold', state.menu) }
 };
 
-const addToCart = () =>{
-
-}
 
 const ColdItems = ({coldMenu}) => {
     
