@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FlexRow, FlexColumn } from '../../theme/defaultStyles';
 import { connect } from 'react-redux';
+import { resolveCart } from '../helpers/resolve.cart';
 
 const StyledCart = styled.div`
     margin-top: 5%;
@@ -180,23 +181,34 @@ const StyledCart = styled.div`
 `;
 
 const mapStateToProps = state => {
-    return { userCart: state.user.cart }
+    return { userCart: state.user.cart, menu: state.menu }
 };
 
-const Cart = ({ userCart }) => {
-    const toRender = userCart?.length > 0 ?
+const Cart = ({ userCart, menu }) => {
+
+    const [cart, setCart] = useState([]);
+
+    useEffect(()=>{
+        // console.log(`menu = ${JSON.stringify(menu)}`);
+        let cartFromHelper = resolveCart(userCart, menu);
+        console.log(`cartfrom helper = ${JSON.stringify(cartFromHelper)}`);
+        
+            setCart(cartFromHelper);
+    }, []);
+
+    const toRender = cart?.length > 0 ?
         (<>
             <div className="cart-A">
 
                 {
-                    userCart.map(item => {
-                        return <div className="cart-item">
+                    cart.map(item => {
+                        return <div className="cart-item" key={item._id}>
                             <div className="cart-item-img">
-                                <img src="https://images.unsplash.com/photo-1525351326368-efbb5cb6814d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80" />
+                                <img src={`https://cdn.lakshay.xyz/${item.image}`} />
                             </div>
                             <p>1 x</p>
-                            <p className="item-name">Classic Scrambled Eggs</p>
-                            <p className="item-price">100 INR</p>
+                            <p className="item-name">{item.name}</p>
+                            <p className="item-price">{item.price} INR</p>
                             <a><ion-icon name="trash-outline"></ion-icon></a>
 
                         </div>

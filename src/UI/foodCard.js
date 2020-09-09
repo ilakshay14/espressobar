@@ -36,7 +36,6 @@ const Card = ({ id, src, caption, classname, buttonStyle, price, bookmark, updat
         axios.post('http://localhost:3000/updatecart',
         {
             "itemid": id,
-            "qty": 10,
             "_id": user.id
         }).then(response => {
             console.log(response);
