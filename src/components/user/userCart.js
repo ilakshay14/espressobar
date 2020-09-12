@@ -181,19 +181,28 @@ const StyledCart = styled.div`
 `;
 
 const mapStateToProps = state => {
+    console.log(state.user)
     return { userCart: state.user.cart, menu: state.menu }
 };
 
 const Cart = ({ userCart, menu }) => {
 
     const [cart, setCart] = useState([]);
+    const [price, setPrice] = useState(0);
 
     useEffect(()=>{
-        // console.log(`menu = ${JSON.stringify(menu)}`);
-        let cartFromHelper = resolveCart(userCart, menu);
-        console.log(`cartfrom helper = ${JSON.stringify(cartFromHelper)}`);
+        let {cartFromHelper, amount} = resolveCart(userCart, menu);
+        // console.log(`cartfrom helper = ${JSON.stringify(cartFromHelper)}`);
         
-            setCart(cartFromHelper);
+        setCart(cartFromHelper);
+        // console.log(cart);
+        // let amount = 0;
+        // cart.map(item => {
+        //     console.log(` price = ${item.price}`);
+        //     amount = amount + parseInt(item.price);
+        // });
+        // console.log(amount);
+        setPrice(amount);
     }, []);
 
     const toRender = cart?.length > 0 ?
@@ -201,7 +210,7 @@ const Cart = ({ userCart, menu }) => {
             <div className="cart-A">
 
                 {
-                    cart.map(item => {
+                    cart?.map(item => {
                         return <div className="cart-item" key={item._id}>
                             <div className="cart-item-img">
                                 <img src={`https://cdn.lakshay.xyz/${item.image}`} />
@@ -229,7 +238,7 @@ const Cart = ({ userCart, menu }) => {
                     <div className="checkout">
                         <div className="final-price">
                             <p className="total-label">Total:</p>
-                            <p className="total-price">300 INR</p>
+                            <p className="total-price">{price} INR</p>
                         </div>
                         <div className="checkout-line"></div>
                         <button className="checkout-button">

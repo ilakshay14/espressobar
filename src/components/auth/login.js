@@ -23,11 +23,11 @@ const Login = () => {
         // console.log(localStorage.getItem('user'));
 
         if(existingUser){
-            console.log('user exists');
-            dispatch({
-                type: USER_LOGIN,
-                payload: {...existingUser}
-            });
+            // console.log('user exists');
+            // dispatch({
+            //     type: USER_LOGIN,
+            //     payload: {...existingUser}
+            // });
             setRedirect('/user');
         }
         else{

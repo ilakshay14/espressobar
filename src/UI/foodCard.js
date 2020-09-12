@@ -23,12 +23,16 @@ const Card = ({ id, src, caption, classname, buttonStyle, price, bookmark, updat
 
     useEffect(() => {
         // console.log(cart);
-        cart.find( item => {
-            if(item.id === id){
-                changeIcon(true);
-            }
-        });
-    },[]);
+        // cart.map(item => {
+        //     if(item.itemid === id){
+        //         changeIcon(true);
+        //     }
+        // });
+        console.log(cart);
+        if(cart.find(item => item.itemid === id)){
+            changeIcon(true);
+        }
+    },[id]);
     
     const addToCart = () => {
         let user = JSON.parse(localStorage.getItem('user'));

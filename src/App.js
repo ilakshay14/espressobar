@@ -1,6 +1,6 @@
 import React, { useEffect, Suspense } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom'
-import { ADD_MENU, USER_LOGIN } from './constants/action.constants';
+import { ADD_MENU, UPDATE_USER, USER_LOGIN } from './constants/action.constants';
 import { useDispatch } from 'react-redux';
 
 import Header from './components/header/header';
@@ -10,6 +10,7 @@ import Coffeehouse from './components/coffeehouse/coffeehouse';
 import Coffee from './components/coffee/coffee';
 import { HTTP_GET } from './components/helpers/axios.config';
 import { fetchUserFromCookie } from './components/helpers/fetchFromCookie';
+import Axios from 'axios';
 
 const Menu = React.lazy(() => import('./components/menu/menu'));
 const Login = React.lazy(() => import('./components/auth/login'));
@@ -35,15 +36,36 @@ const App = () => {
         })
         
         const existingUser = fetchUserFromCookie();
-        if (existingUser) {
+        // console.log(existingUser);
+        Axios.post('http://localhost:3000/getuseritems',
+            { _id: existingUser.id},
+            { headers: {
+                "x-access-token": existingUser.accessToken
+            }}
+        ).then(response => {
+            console.log(response);
             dispatch({
-                type: USER_LOGIN,
-                payload: { ...existingUser }
-            });
-        }
-        else {
-            console.log('no user found');
-        }
+                type: UPDATE_USER,
+                payload: {
+                    id: existingUser.id,
+                    firstname: existingUser.firstname,
+                    lastname: existingUser.lastname,
+                    cart: response.data.cart,
+                    bookmarks: response.data.bookmarks
+                }
+            })
+            
+        })
+
+        // if (existingUser) {
+        //     dispatch({
+        //         type: USER_LOGIN,
+        //         payload: { ...existingUser }
+        //     });
+        // }
+        // else {
+        //     console.log('no user found');
+        // }
 
     }, []);
 

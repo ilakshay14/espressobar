@@ -37,22 +37,6 @@ const MenuComponent = ({updateCart}) => {
         setDisplayState(false);
     }
 
-    useEffect(() => {
-        let user = JSON.parse(localStorage.getItem('user'));
-
-        axios.post('http://localhost:3000/updatecart',
-        {
-            "_id": user.id
-        }).then(response => {
-            console.log(response);
-            if(response.status === 200){
-                console.log(response.data.cart);
-                updateCart(response.data.cart);
-            }
-        })
-        .catch(error => console.log(error));
-    }, []);
-
     return (
         <StyledMenu id="menu" showMenu={showMenu}>
             <Navbar/>

@@ -22,6 +22,7 @@ const MixItems = ({mixMenu}) => {
                     mixMenu.map(item => {
                         return <FoodCard
                             key={item._id}
+                            id = {item._id}
                             classname='food-card'
                             src={`https://cdn.lakshay.xyz/${item.image}`}
                             caption={item.name}
