@@ -57,16 +57,6 @@ const App = () => {
             
         })
 
-        // if (existingUser) {
-        //     dispatch({
-        //         type: USER_LOGIN,
-        //         payload: { ...existingUser }
-        //     });
-        // }
-        // else {
-        //     console.log('no user found');
-        // }
-
     }, []);
 
 

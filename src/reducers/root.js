@@ -32,8 +32,6 @@ const rootReducer = (state = initialState, action) => {
         state.user = {
             ...action.payload
         }
-        // state.user.cart = action.payload.cart;
-        // state.user.bookmarks = action.payload.bookmarks;
     }
     
     return state;

@@ -195,13 +195,6 @@ const Cart = ({ userCart, menu }) => {
         // console.log(`cartfrom helper = ${JSON.stringify(cartFromHelper)}`);
         
         setCart(cartFromHelper);
-        // console.log(cart);
-        // let amount = 0;
-        // cart.map(item => {
-        //     console.log(` price = ${item.price}`);
-        //     amount = amount + parseInt(item.price);
-        // });
-        // console.log(amount);
         setPrice(amount);
     }, []);
 

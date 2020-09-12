@@ -20,7 +20,6 @@ const Login = () => {
 
     useEffect(()=>{
         const existingUser = JSON.parse(localStorage.getItem('user'));
-        // console.log(localStorage.getItem('user'));
 
         if(existingUser){
             // console.log('user exists');

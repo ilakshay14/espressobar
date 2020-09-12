@@ -22,12 +22,6 @@ const Card = ({ id, src, caption, classname, buttonStyle, price, bookmark, updat
     const [icon, changeIcon] = useState(false);
 
     useEffect(() => {
-        // console.log(cart);
-        // cart.map(item => {
-        //     if(item.itemid === id){
-        //         changeIcon(true);
-        //     }
-        // });
         console.log(cart);
         if(cart.find(item => item.itemid === id)){
             changeIcon(true);
