@@ -22,22 +22,13 @@ const Login = () => {
         const existingUser = JSON.parse(localStorage.getItem('user'));
 
         if(existingUser){
-            // console.log('user exists');
-            // dispatch({
-            //     type: USER_LOGIN,
-            //     payload: {...existingUser}
-            // });
             setRedirect('/user');
-        }
-        else{
-            console.log('no user found');
         }
     },[]);
 
     const onBlurHandler = ({ target }) => {
         switch (target.name) {
             case "password":
-                console.log(`password ==== ${target.value}`);
                 if (target.value.length === 0) {
                     _errors.password = 'Password cannot be empty';
                     break
@@ -46,7 +37,6 @@ const Login = () => {
                 break;
 
             case "email":
-                console.log(`email ==== ${target.value}`);
                 let pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
                 if (pattern.test(target.value)) {
@@ -67,7 +57,6 @@ const Login = () => {
         event.preventDefault();
         let validity = true;
         Object.values(_errors).map(element => {
-            console.log(element);
             if (element.length > 0) {
                 validity = false;
             }
@@ -79,7 +68,6 @@ const Login = () => {
         }
 
         if (validity === false) {
-            console.log(_errors);
             setFormError('Please provide valid information');
             return;
         }

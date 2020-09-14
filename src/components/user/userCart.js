@@ -6,7 +6,6 @@ import { removeFromCart } from '../helpers/cart.operations';
 import { UPDATE_CART } from '../../constants/action.constants';
 
 const mapStateToProps = state => {
-    console.log(state.user)
     let {cartFromHelper, amount} = resolveCart(state.user.cart, state.menu)
     return {cartFromHelper, amount}
 };
@@ -27,7 +26,6 @@ const Cart = ({ cartFromHelper, amount, updateCart }) => {
 
     const removeItemFromCart = (id) => {
         removeFromCart(id).then(response => {
-            console.log(response);
             updateCart(response.data.cart);
 
         })

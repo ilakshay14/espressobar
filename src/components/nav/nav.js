@@ -11,14 +11,8 @@ const Navbar = () => {
     
     useEffect(()=>{
         const existingUser = JSON.parse(localStorage.getItem('user'));
-        // console.log(existingUser.firstname);
-
         if(existingUser){
-            console.log('user exists');
             setUserName(existingUser.firstname);
-        }
-        else{
-            console.log('no user found');
         }
     },[]);
 

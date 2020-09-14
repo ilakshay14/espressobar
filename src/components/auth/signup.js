@@ -70,7 +70,6 @@ const SignUp = () => {
 
         let validity = true;
         Object.values(_errors).map(element => {
-            console.log(element);
             if (element.length > 0) {
                 validity = false;
             }
@@ -84,7 +83,6 @@ const SignUp = () => {
         }
 
         if (validity === false) {
-            console.log(_errors);
             setFormError('Please provide valid information');
             return;
         }
@@ -98,16 +96,12 @@ const SignUp = () => {
             password: _password
         }
 
-        console.log(`user === ${user}`);
-        console.log('Form is valid');
-
-        
         axios.post(
             'http://localhost:3000/signup',
             { ...user }
         ).then(response => console.log(`response = ${JSON.stringify(response)}`))
         .catch(err => console.log(`err = ${JSON.stringify(err)}`));
-
+        //TODO Redirect user to login page
     }
 
 

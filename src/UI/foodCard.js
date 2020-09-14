@@ -22,7 +22,6 @@ const Card = ({ id, src, caption, classname, buttonStyle, price, bookmark, updat
     const [icon, changeIcon] = useState(false);
 
     useEffect(() => {
-        console.log(cart);
         if(cart.find(item => item.itemid === id)){
             changeIcon(true);
         }
@@ -36,10 +35,8 @@ const Card = ({ id, src, caption, classname, buttonStyle, price, bookmark, updat
             "itemid": id,
             "_id": user.id
         }).then(response => {
-            console.log(response);
             if(response.status === 200){
                 changeIcon(true);
-                console.log(response.data.cart);
                 updateCart(response.data.cart);
             }
         })
@@ -53,10 +50,8 @@ const Card = ({ id, src, caption, classname, buttonStyle, price, bookmark, updat
             "itemid": id,
             "_id": user.id
         }).then(response => {
-            //console.log(response);
             if(response.status === 200){
                 changeIcon(false);
-                //console.log(response.data.cart);
                 updateCart(response.data.cart);
             }
         })

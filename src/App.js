@@ -36,14 +36,12 @@ const App = () => {
         })
         
         const existingUser = fetchUserFromCookie();
-        // console.log(existingUser);
         Axios.post('http://localhost:3000/getuseritems',
             { _id: existingUser.id},
             { headers: {
                 "x-access-token": existingUser.accessToken
             }}
         ).then(response => {
-            console.log(response);
             dispatch({
                 type: UPDATE_USER,
                 payload: {
