@@ -1,209 +1,44 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { FlexRow, FlexColumn } from '../../theme/defaultStyles';
+import StyledCart from './styles/styledCart';
 import { connect } from 'react-redux';
 import { resolveCart } from '../helpers/resolve.cart';
-
-const StyledCart = styled.div`
-    margin-top: 5%;
-    width: 100%;
-    height: 100vh;
-
-    ${FlexRow};
-
-    .cart-A, .cart-B{
-        width: 40%;
-        height: 80%;
-        
-        padding: 10px;
-    }
-
-    .cart-A{
-        border-right: 1px solid #DBE0E6;
-
-        ${FlexColumn}
-        justify-content: start;
-        flex-wrap: nowrap;
-        overflow-y: scroll;
-
-        .cart-item{
-            width: 90%;
-            height: 100px;
-            margin: 2% auto;
-            background-color: #ffffff;
-            ${FlexRow}
-            justify-content: space-between;
-            align-content: center;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
-            transition: all 0.25s linear;
-            border-radius: 15px;
-
-            :hover{
-                box-shadow: 0px 5px 30px rgba(0, 0, 0, 0.25);
-            }
-
-            p{
-                margin: auto;
-            }
-
-            .item-name{
-                width: 30%;
-            }
-
-            .item-price{
-                color: #C4C4C4;
-            }
-
-            a {
-                margin: auto;
-                font-size: 120%;
-            }
-
-            .cart-item-img{
-                width: 100px;
-                height: 100px;
-                
-                img{
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 15px;
-                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-                }
-            }
-        }
-    }
-
-    .cart-B{
-        ${FlexColumn}
-
-        .cart-wrapper{
-            
-            width: 80%;
-            height: 80%;
-            ${FlexColumn}
-            justify-content: space-evenly;
-            
-            .pickup-time{
-                ${FlexColumn}
-                justify-content: space-evenly;
-
-                color: white;
-                width: 90%;
-                height: 150px;
-                background: #39486C;
-                border-radius: 15px;
-                box-shadow: 0px 5px 70px rgba(0, 0, 0, 0.25);
-
-                p{
-                    font-size: 18px;
-                    text-align: center;
-                }
-
-                .time{
-                    ${FlexRow}
-                    justify-content: space-evenly;
-                    width: 50%;
-
-                    p{
-                        margin-top: auto;
-                        margin-bottom: auto;
-                    }
-
-                    button{
-                        width: 50px;
-                        height: 50px;
-                        background: #9B3605;
-                        border: none;
-                        border-radius: 10px;
-                        color: white;
-                        font-size: 220%;
-                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-                        ${FlexColumn}
-                        ion-icon{
-                            vertical-align: unset;
-                            
-                        }
-                    }
-                }
-            }
-
-            .checkout{
-                width: 70%;
-                height: 200px;
-                align-self: center;
-
-                ${FlexRow}
-                align-content: space-evenly;
-                background: #FFFFFF;
-                box-shadow: 0px 5px 70px rgba(0, 0, 0, 0.25);
-                border-radius: 20px;
-
-                .final-price{
-                    ${FlexRow}
-                    justify-content: space-evenly;
-                    width: 90%;
-
-                    .total-label{
-                        margin-top: auto;
-                        margin-bottom: auto;
-                    }
-
-                    .total-price{
-                        font-size: 24px;
-                        font-weight: bold;
-                    }
-                }
-
-                .checkout-line{
-                    border-bottom: 1px solid #DBE0E6;
-                    width: 200px;
-                }
-
-                .checkout-button{
-                    align-self: center;
-                    border: none;
-                    width: 150px;
-                    height: 50px;
-
-                    background: #9B3605;
-                    border-radius: 100px;
-                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-                    ${FlexRow}
-                    justify-content: space-evenly;
-                    color: white;
-                    font-size: 18px;
-                }
-            }
-        }
-    }
-`;
+import { removeFromCart } from '../helpers/cart.operations';
+import { UPDATE_CART } from '../../constants/action.constants';
 
 const mapStateToProps = state => {
     console.log(state.user)
-    return { userCart: state.user.cart, menu: state.menu }
+    let {cartFromHelper, amount} = resolveCart(state.user.cart, state.menu)
+    return {cartFromHelper, amount}
 };
 
-const Cart = ({ userCart, menu }) => {
+const mapDispatchToProps = (dispatch) => {
+    return({
+        updateCart: (cart) => { dispatch({
+            type: UPDATE_CART,
+            payload: cart
+        })}
+    })
+};
 
-    const [cart, setCart] = useState([]);
-    const [price, setPrice] = useState(0);
+const Cart = ({ cartFromHelper, amount, updateCart }) => {
 
     useEffect(()=>{
-        let {cartFromHelper, amount} = resolveCart(userCart, menu);
-        // console.log(`cartfrom helper = ${JSON.stringify(cartFromHelper)}`);
-        
-        setCart(cartFromHelper);
-        setPrice(amount);
     }, []);
 
-    const toRender = cart?.length > 0 ?
+    const removeItemFromCart = (id) => {
+        removeFromCart(id).then(response => {
+            console.log(response);
+            updateCart(response.data.cart);
+
+        })
+    }
+ 
+    const toRender = cartFromHelper?.length > 0 ?
         (<>
             <div className="cart-A">
 
                 {
-                    cart?.map(item => {
+                    cartFromHelper?.map(item => {
                         return <div className="cart-item" key={item._id}>
                             <div className="cart-item-img">
                                 <img src={`https://cdn.lakshay.xyz/${item.image}`} />
@@ -211,7 +46,7 @@ const Cart = ({ userCart, menu }) => {
                             <p>1 x</p>
                             <p className="item-name">{item.name}</p>
                             <p className="item-price">{item.price} INR</p>
-                            <a><ion-icon name="trash-outline"></ion-icon></a>
+                            <a onClick={()=> removeItemFromCart(item._id)}><ion-icon name="trash-outline"></ion-icon></a>
 
                         </div>
                     })
@@ -231,7 +66,7 @@ const Cart = ({ userCart, menu }) => {
                     <div className="checkout">
                         <div className="final-price">
                             <p className="total-label">Total:</p>
-                            <p className="total-price">{price} INR</p>
+                            <p className="total-price">{amount} INR</p>
                         </div>
                         <div className="checkout-line"></div>
                         <button className="checkout-button">
@@ -251,6 +86,6 @@ const Cart = ({ userCart, menu }) => {
 
 }
 
-const UserCart = connect(mapStateToProps)(Cart);
+const UserCart = connect(mapStateToProps,mapDispatchToProps)(Cart);
 
 export default UserCart;

@@ -22,9 +22,13 @@ const rootReducer = (state = initialState, action) => {
     }
 
     if(action.type ===  UPDATE_CART){
-        state.user.cart = action.payload;
-        console.log(state.user.cart);
-        // console.log(`X === ${JSON.stringify(x)}`);
+        return Object.assign({}, state, {
+            ...state,
+            user: {
+                ...state.user,
+                cart: action.payload
+            }
+        })
         
     }
 
