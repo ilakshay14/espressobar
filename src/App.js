@@ -19,28 +19,21 @@ const Dashboard = React.lazy(() => import('./components/user/dashboard'));
 const MessageScreen = React.lazy(() => import('./components/helpers/message.screen'));
 const ErrorScreen = React.lazy(() => import('./components/helpers/404.screen'));
 
-const fetchMenu = async () =>{
+const fetchMenu = async () => {
     let response = await HTTP_GET('menu');
     return response.data.menu;
 }
 
-const App = () => {
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        fetchMenu().then(response => {
-            dispatch({
-                type: ADD_MENU,
-                payload: response
-            })
-        })
-        
-        const existingUser = fetchUserFromCookie();
+const fetchUserItems = async () => {
+    const existingUser = fetchUserFromCookie();
+    if (existingUser) {
         Axios.post('http://localhost:3000/getuseritems',
-            { _id: existingUser.id},
-            { headers: {
-                "x-access-token": existingUser.accessToken
-            }}
+            { _id: existingUser.id },
+            {
+                headers: {
+                    "x-access-token": existingUser.accessToken
+                }
+            }
         ).then(response => {
             dispatch({
                 type: UPDATE_USER,
@@ -52,8 +45,26 @@ const App = () => {
                     bookmarks: response.data.bookmarks
                 }
             })
-            
+
         })
+    }
+}
+
+const App = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        fetchMenu().then(response => {
+            dispatch({
+                type: ADD_MENU,
+                payload: response
+            })
+        });
+
+        fetchUserItems();
+
+
+
 
     }, []);
 

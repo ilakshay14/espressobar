@@ -1,7 +1,7 @@
 import React from 'react';
 
 import StyledSides from './styles/styledSides';
-import FoodCard from '../../UI/foodCard';
+import FoodCard from '../../UI/FoodCard/FoodCardContainer';
 import { connect } from 'react-redux';
 import extractMenuItems from './helpers';
 

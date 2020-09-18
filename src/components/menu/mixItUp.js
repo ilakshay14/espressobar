@@ -1,6 +1,6 @@
 import React from 'react';
 import StyledSides from './styles/styledSides';
-import FoodCard from '../../UI/foodCard';
+import FoodCard from '../../UI/FoodCard/FoodCardContainer';
 
 import { mix } from '../../utils/menu.json';
 

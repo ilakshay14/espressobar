@@ -1,5 +1,4 @@
-import { ADD_MENU, ADD_TO_CART, UPDATE_CART, UPDATE_USER } from "../constants/action.constants";
-import { USER_LOGIN } from "../constants/action.constants";
+import { ADD_MENU, UPDATE_CART, UPDATE_USER, USER_LOGIN } from "../constants/action.constants";
 
 const initialState = {
     menu: [],
@@ -7,37 +6,39 @@ const initialState = {
 }
 
 const rootReducer = (state = initialState, action) => {
-    if(action.type ===  ADD_MENU){
-        return Object.assign({}, state, {
-            //menu: state.menu.concat(action.payload)
-            menu: [...action.payload]
-        })
-    }
+    switch (action.type) {
+        case ADD_MENU:
+            return Object.assign({}, state, {
+                menu: [...action.payload]
+            })
+            break;
 
-    if(action.type ===  USER_LOGIN){
-        return Object.assign({}, state, {
-            //menu: state.menu.concat(action.payload)
-            user: {...action.payload}
-        })
-    }
+        case USER_LOGIN:
+            return Object.assign({}, state, {
+                user: {...action.payload}
+            })
+            break;
 
-    if(action.type ===  UPDATE_CART){
-        return Object.assign({}, state, {
-            ...state,
-            user: {
-                ...state.user,
-                cart: action.payload
+        case UPDATE_CART:
+            return Object.assign({}, state, {
+                ...state,
+                user: {
+                    ...state.user,
+                    cart: action.payload
+                }
+            })
+            break;
+
+        case UPDATE_USER:
+            state.user = {
+                ...action.payload
             }
-        })
-        
+            break;
+    
+        default:
+            break;  
     }
 
-    if(action.type === UPDATE_USER){
-        state.user = {
-            ...action.payload
-        }
-    }
-    
     return state;
 }
 

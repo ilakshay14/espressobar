@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FlexRow, FlexColumn } from '../../theme/defaultStyles';
-import FoodCard from '../../UI/foodCard';
+import FoodCard from '../../UI/FoodCard/FoodCardContainer';
 import { connect } from 'react-redux';
 const StyledBookmarks = styled.div`
     margin-top: 10%;

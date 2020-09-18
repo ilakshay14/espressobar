@@ -1,28 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import Image from '../common/image';
+import Image from '../../common/image';
 import axios from 'axios';
-import { connect } from 'react-redux';
-import { ADD_TO_CART, UPDATE_CART } from '../constants/action.constants';
-
-const mapDispatchToProps = (dispatch) => {
-    return({
-        updateCart: (id) => { dispatch({
-            type: UPDATE_CART,
-            payload: id
-        })}
-    })
-};
-
-const mapStateToProps = state => {
-    return { cart: state.user.cart }
-};
 
 const Card = ({ id, src, caption, classname, buttonStyle, price, bookmark, updateCart, cart }) => {
     
     const [icon, changeIcon] = useState(false);
 
     useEffect(() => {
-        if(cart.find(item => item.itemid === id)){
+        if(cart?.find(item => item.itemid === id)){
             changeIcon(true);
         }
     },[id]);
@@ -77,6 +62,4 @@ const Card = ({ id, src, caption, classname, buttonStyle, price, bookmark, updat
     );
 }
 
-const FoodCard = connect(mapStateToProps, mapDispatchToProps)(Card)
-
-export default FoodCard;
+export default Card;
