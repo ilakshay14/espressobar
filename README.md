@@ -26,7 +26,7 @@
 </p>
 
 <p>
-    Temporary and Live Backend for this repository is developed using Express.js and MongoDB by and you can check it out at <a href="https://github.com/ilakshay14/espressobar-backend-node"><u>backend repo</u><a/>
+    Temporary and Live Backend for this repository is developed using Express.js and MongoDB and you can check it out at <a href="https://github.com/ilakshay14/espressobar-backend-node"><u>backend repo</u><a/>
 </p>
 
 # Developement in progress
