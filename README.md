@@ -28,8 +28,7 @@
 
 # Developement in progress
 <ol>
-    <li>User Registration/Login</li>
-    <li>Add to/Remove from Cart</li>
+    <li>Refactoring to make it more modular</li>
     <li>Mark/Unmark as favourite</li>
 </ol>
 
@@ -38,7 +37,7 @@
 
 # Thanks!
 <p>Hi! Feel free to check it out and let us know how we can improve it further.</p>
-<p>This project is still in a very early stage and we love it alot and would like to hear from you how we can make it better.</p>
+<p>This project is still in a very early stage and we love it alot and would like to hear from you how we can make it better. Feel free to open a PR and contribute it if you want.</p>
 
 # Contributors
 
@@ -51,6 +50,22 @@
     <h2>Lakshay</h2>
     <a href="https://github.com/ilakshay14">Github</a><br/>
     <a href="https://lakshay.xyz/">Web</a>
+</p>
+
+# Special Thanks to my friends here 
+<p>
+    <h2>Ashish Mehra</h2><p> for helping me out with Application Architecture</p>
+    <a href="https://github.com/mashish584">Github</a><br/>
+    <a href="https://ashish-mehra.netlify.app/">Web</a>
+</p>
+<p>
+    <h2>Nimit Patel</h2><p> for helping me out with using Mongoose and Mongo</p>
+    <a href="https://github.com/nimitpatel">Github</a><br/>
+    <a href="https://nimitpatel.dev/">Web</a>
+</p>
+<p>
+    <h2>Sonali Kamnani</h2><p> for helping me out with Application Architecture</p>
+    <a href="https://sonalikamnani.pb.online/">Web</a>
 </p>
 
 
