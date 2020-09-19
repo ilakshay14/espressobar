@@ -15,7 +15,7 @@ const Card = ({ id, src, caption, classname, buttonStyle, price, bookmark, updat
     const addToCart = () => {
         let user = JSON.parse(localStorage.getItem('user'));
 
-        axios.post('http://localhost:3000/updatecart',
+        axios.post('http://localhost:8080/updatecart',
         {
             "itemid": id,
             "_id": user.id
@@ -30,7 +30,7 @@ const Card = ({ id, src, caption, classname, buttonStyle, price, bookmark, updat
 
     const removeFromCart = () => {
         let user = JSON.parse(localStorage.getItem('user'));
-        axios.post('http://localhost:3000/removeitem',
+        axios.post('http://localhost:8080/removeitem',
         {
             "itemid": id,
             "_id": user.id

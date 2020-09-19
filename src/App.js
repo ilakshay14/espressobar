@@ -27,7 +27,7 @@ const fetchMenu = async () => {
 const fetchUserItems = async () => {
     const existingUser = fetchUserFromCookie();
     if (existingUser) {
-        Axios.post('http://localhost:3000/getuseritems',
+        Axios.post('http://localhost:8080/getuseritems',
             { _id: existingUser.id },
             {
                 headers: {

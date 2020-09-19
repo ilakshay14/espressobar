@@ -97,7 +97,7 @@ const SignUp = () => {
         }
 
         axios.post(
-            'http://localhost:3000/signup',
+            'http://localhost:8080/signup',
             { ...user }
         ).then(response => console.log(`response = ${JSON.stringify(response)}`))
         .catch(err => console.log(`err = ${JSON.stringify(err)}`));

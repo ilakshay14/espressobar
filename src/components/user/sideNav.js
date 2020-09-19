@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import StyledSideNav from './styles/styledSideNave';
 import { NavLink, Redirect } from 'react-router-dom'
-
+import Gravatar from 'react-gravatar';
 
 const DashboardNav = () => {
 
     const [chevPos, setChevPos] = useState(1);
     const [redirect, setRedirect] = useState(null);
+    const [email, setEmail] = useState('');
+
+    useEffect(()=>{
+        const user = JSON.parse(localStorage.getItem('user'));
+        setEmail(user.email);
+    },[]);
 
     const logout=()=>{
         localStorage.removeItem("user");
@@ -21,7 +27,10 @@ const DashboardNav = () => {
         <StyledSideNav>
             <div className="nav-head">
                 <div className="user-image">
-                    <img src="https://source.unsplash.com/200x200/?dogs" />
+                    <Gravatar email={email}
+                    size={200}
+                    default="monsterid"
+                    className="image"/>
                 </div>
             </div>
             <div className="nav-body">
