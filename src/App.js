@@ -8,9 +8,10 @@ import StyledSection from './theme/styledSection';
 import Navbar from './components/nav/nav';
 import Coffeehouse from './components/coffeehouse/coffeehouse';
 import Coffee from './components/coffee/coffee';
-import { HTTP_GET } from './components/helpers/axios.config';
+import { HTTP_GET, HTTP_POST } from './components/helpers/axios.config';
 import { fetchUserFromCookie } from './components/helpers/fetchFromCookie';
 import Axios from 'axios';
+import Loader from './components/Loader/loader';
 
 const Menu = React.lazy(() => import('./components/menu/menu'));
 const Login = React.lazy(() => import('./components/auth/login'));
@@ -24,17 +25,19 @@ const fetchMenu = async () => {
     return response.data.menu;
 }
 
-const fetchUserItems = async () => {
+const fetchUserItems = async (dispatch) => {
     const existingUser = fetchUserFromCookie();
     if (existingUser) {
-        Axios.post('http://localhost:8080/getuseritems',
-            { _id: existingUser.id },
-            {
-                headers: {
-                    "x-access-token": existingUser.accessToken
-                }
-            }
-        ).then(response => {
+        // Axios.post('http://localhost:8080/getuseritems',
+        //     { _id: existingUser.id },
+        //     {
+        //         headers: {
+        //             "x-access-token": existingUser.accessToken
+        //         }
+        //     }
+        // )
+        await HTTP_POST('getuseritems', { _id: existingUser.id})
+        .then(response => {
             dispatch({
                 type: UPDATE_USER,
                 payload: {
@@ -44,9 +47,8 @@ const fetchUserItems = async () => {
                     cart: response.data.cart,
                     bookmarks: response.data.bookmarks
                 }
-            })
-
-        })
+            });
+        });
     }
 }
 
@@ -61,7 +63,7 @@ const App = () => {
             })
         });
 
-        fetchUserItems();
+        fetchUserItems(dispatch);
 
 
 
@@ -95,33 +97,33 @@ const App = () => {
                 )} />
 
                 <Route path='/menu' render={() => (
-                    <Suspense fallback={<h1>loading...</h1>}>
+                    <Suspense fallback={<Loader/>}>
                         <Menu />
                     </Suspense>
                 )} />
 
                 <Route path='/login' render={() => (
-                    <Suspense fallback={<h1>loading...</h1>}>
+                    <Suspense fallback={<Loader/>}>
                         <Navbar />
                         <Login />
                     </Suspense>
                 )} />
 
                 <Route path='/signup' render={() => (
-                    <Suspense fallback={<h1>loading...</h1>}>
+                    <Suspense fallback={<Loader/>}>
                         <Navbar />
                         <SignUp />
                     </Suspense>
                 )} />
 
                 <Route path='/user' render={() => (
-                    <Suspense fallback={<h1>loading...</h1>}>
+                    <Suspense fallback={<Loader/>}>
                         <Dashboard />
                     </Suspense>
                 )} />
 
                 <Route path='/newuser' render={() => (
-                    <Suspense fallback={<h1>loading...</h1>}>
+                    <Suspense fallback={<Loader/>}>
                         <ErrorScreen />
                     </Suspense>
                 )} />
