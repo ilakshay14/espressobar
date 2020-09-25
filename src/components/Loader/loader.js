@@ -26,9 +26,18 @@ const StyledCoffeeLoader = styled.div`
                 height:104px;
                 border:5px rgba(0,0,0,1) solid;
                 border-radius: 0px 0px 40px 40px;
-                background-color: black;
+                /* background-color: black; */
+                background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,1));
+                
+                /* animation: fill 2.5s ease-in-out infinite alternate; */
+                transition: all 2.5s ease-in-out infinite alternate;
                 position:relative;
                 margin:36px auto;
+
+                @keyframes fill{
+                        0% { background-position: 0% 0%; }
+                        100% { background-position: 0% 100%; }            
+                    }
 
                 ::after,
                 ::before{
@@ -47,16 +56,15 @@ const StyledCoffeeLoader = styled.div`
                 ::before{
                     width:2px;
                     height:20px;
-                    background-color:rgba(0,0,0,1);
-                    /* margin-left: 5px; */
+                    background-color:rgba(0,0,0,0.5);
                     top: -30px;
                     left:20px;
-                    box-shadow: 10px 0px 0px 0px rgba(0,0,0,1), 5px -25px 0px 0px rgba(0,0,0,1), 15px 0px 0px 0px rgba(0,0,0,1);
-                    animation:steam 1.5s ease-in-out infinite alternate;
+                    box-shadow: 10px 0px 0px 0px rgba(0,0,0,0.5), 5px -25px 0px 0px rgba(0,0,0,0.5), 15px 0px 0px 0px rgba(0,0,0,0.5);
+                    animation:steam 2.5s ease-in-out infinite alternate;
 
                     @keyframes steam{
-                        0%{height: 0px}
-                        100%{height: 20px;}            
+                        0% { height: 20px }
+                        100% { height: 0px; }            
                     }
                 }
             }

@@ -81,6 +81,7 @@ const App = () => {
                     <>
                         {/* <MessageScreen/> */}
                         {/* <ErrorScreen/> */}
+                        {/* <Loader/> */}
                         <Navbar />
                         <StyledSection>
                             <Header />
