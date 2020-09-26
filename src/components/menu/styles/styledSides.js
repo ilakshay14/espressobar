@@ -38,6 +38,8 @@ const StyledSides = styled.div`
             text-align: center;
             ${FlexColumn}
             justify-content: space-evenly;
+
+            /* border: 1px solid black; */
             
 
             img{
