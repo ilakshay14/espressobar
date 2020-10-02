@@ -18,9 +18,10 @@ const StyledSides = styled.div`
     h4{
         font-weight: bold;
         font-size: 120%;
-        line-height: 80px;
+        /* line-height: 80px; */
         letter-spacing: 0.05em;
         text-align: center;
+        padding: 8%;
         
     }
 
@@ -32,31 +33,32 @@ const StyledSides = styled.div`
         ${FlexRow}
         
         .food-card{
-            flex: 0 0 320px;
-            height: 500px;
-            margin: 3% auto;
+            flex: 0 0 300px;
+            height: 450px;
+            margin: 3% 5%;
             text-align: center;
             ${FlexColumn}
-            justify-content: space-evenly;
+            /* justify-content: space-between; */
 
-            /* border: 1px solid black; */
+            border: 1px solid black;
             
 
             img{
-                width: 250px;
-                border-radius: 50%;
+                width: 300px;
+                /* border-radius: 50%; */
                 align-self: center;
             }
 
             p {
-                margin-top: -5%;
-                margin-bottom: 5%;
+                
+                /* margin-top: -5%; */
+                /* margin-bottom: 5%; */
                 font-size: 120%;
             }
 
             .foodcard-header{
                 ${FlexRow}
-
+                border: 1px solid red;
                 /* border: 1px solid black; */
                 align-content: center;
                 width: 100%;
@@ -65,6 +67,46 @@ const StyledSides = styled.div`
                     vertical-align: middle;
                     cursor: pointer;
                     margin-left: 5px;
+                }
+            }
+
+            .foodcard-footer{
+                ${FlexRow}
+                justify-content: space-evenly;
+                border: 1px solid black;
+                /* height: 50px; */
+
+                div{
+                    padding: 2%;
+                }
+
+                .addToCart{
+                    align-self: center;
+
+                    width: 80px;
+                    height: 40px;
+
+                    background: rgba(155, 54, 5, 0.9);
+                    border: 1px solid rgba(155, 54, 5, 0.9);
+                    box-sizing: border-box;
+                    border-radius: 40px;
+
+                    color: #ffffff;
+                    font-size: 25px;
+                    text-align: center;
+                    cursor: pointer;
+                    outline: none;
+                    transition: box-shadow 0.2s linear;
+                    
+                    :hover{
+                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+                    }
+
+
+                    ion-icon{
+                        vertical-align: middle;
+                    }
                 }
             }
 
@@ -93,34 +135,7 @@ const StyledSides = styled.div`
         }
     }
 
-    .addToCart{
-        align-self: center;
-
-        width: 80px;
-        height: 40px;
-
-        background: rgba(155, 54, 5, 0.9);
-        border: 1px solid rgba(155, 54, 5, 0.9);
-        box-sizing: border-box;
-        border-radius: 40px;
-
-        color: #ffffff;
-        font-size: 25px;
-        text-align: center;
-        cursor: pointer;
-        outline: none;
-        transition: box-shadow 0.2s linear;
-        
-        :hover{
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-        }
-
-
-        ion-icon{
-            vertical-align: middle;
-        }
-    }
+    
 
     @media screen and (max-width: 480px) {
         h2{
