@@ -34,31 +34,31 @@ const StyledSides = styled.div`
         
         .food-card{
             flex: 0 0 300px;
-            height: 450px;
+            height: 500px;
             margin: 3% 5%;
             text-align: center;
             ${FlexColumn}
-            /* justify-content: space-between; */
+            justify-content: space-between;
 
-            border: 1px solid black;
+            /* border: 1px solid black; */
             
 
             img{
                 width: 300px;
-                /* border-radius: 50%; */
+                border-radius: 50%;
                 align-self: center;
             }
 
             p {
                 
-                /* margin-top: -5%; */
-                /* margin-bottom: 5%; */
+                margin-top: -5%;
+                margin-bottom: 5%;
                 font-size: 120%;
             }
 
             .foodcard-header{
                 ${FlexRow}
-                border: 1px solid red;
+                /* border: 1px solid red; */
                 /* border: 1px solid black; */
                 align-content: center;
                 width: 100%;
@@ -70,17 +70,20 @@ const StyledSides = styled.div`
                 }
             }
 
-            .foodcard-footer{
+            /* .foodcard-footer{
                 ${FlexRow}
                 justify-content: space-evenly;
                 border: 1px solid black;
-                /* height: 50px; */
+                height: 50px;
 
                 div{
                     padding: 2%;
                 }
 
-                .addToCart{
+                
+            } */
+
+            .addToCart{
                     align-self: center;
 
                     width: 80px;
@@ -108,7 +111,6 @@ const StyledSides = styled.div`
                         vertical-align: middle;
                     }
                 }
-            }
 
             .hidden{
                 /* display: none !important; */

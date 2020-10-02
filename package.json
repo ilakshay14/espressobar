@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production  --config webpack.prod.js",
     "start": "webpack-dev-server --open --config webpack.dev.js",
-    "onHost": "webpack-dev-server --open --config webpack.dev.js --host 192.168.29.66"
+    "onHost": "webpack-dev-server --open --config webpack.dev.js --host 192.168.29.173"
   },
   "keywords": [],
   "author": "",

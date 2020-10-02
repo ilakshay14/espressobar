@@ -15,7 +15,7 @@ const Card = ({ id, src, caption, classname, buttonStyle, price, bookmark, updat
     const addToCart = () => {
         let user = JSON.parse(localStorage.getItem('user'));
 
-        axios.post('http://192.168.29.66:8080/updatecart',
+        axios.post('http://192.168.29.173:8080/updatecart',
             {
                 "itemid": id,
                 "_id": user.id
@@ -30,7 +30,7 @@ const Card = ({ id, src, caption, classname, buttonStyle, price, bookmark, updat
 
     const removeFromCart = () => {
         let user = JSON.parse(localStorage.getItem('user'));
-        axios.post('http://192.168.29.66:8080/removeitem',
+        axios.post('http://192.168.29.173:8080/removeitem',
             {
                 "itemid": id,
                 "_id": user.id
@@ -49,24 +49,28 @@ const Card = ({ id, src, caption, classname, buttonStyle, price, bookmark, updat
             <div className="foodcard-header">
                 <h4>
                     {caption}
+                    <ion-icon name={bookmark || "bookmark-outline"}></ion-icon>
                 </h4>
             </div>
-            <div className="foodcard-footer">
+            <p>{price} INR</p>
+            <button className={buttonStyle} onClick={icon ? removeFromCart : addToCart}>
+                <ion-icon name={icon ? "trash-outline" : "cart-outline"}></ion-icon>
+            </button>
+            
+            {/* <div className="foodcard-footer">
                 <div>
-                    <button className={buttonStyle} onClick={icon ? removeFromCart : addToCart}>
-                        <ion-icon name={icon ? "trash-outline" : "cart-outline"}></ion-icon>
-                    </button>
+                    
                 </div>
                 <div>
-                    <p>{price} INR</p>
+                    
                 </div>
                 <div>
-                    <ion-icon name={bookmark || "bookmark-outline"}></ion-icon>
+                    
                 </div>
 
 
 
-            </div>
+            </div> */}
         </div>
     );
 }
