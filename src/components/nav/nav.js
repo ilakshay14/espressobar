@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import StyledNav from './styles/styledNav';
 import { Link, Redirect } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
+import { fetchUserFromCookie } from '../helpers/cookie.operations';
 
 const Navbar = () => {
 
@@ -10,7 +11,7 @@ const Navbar = () => {
     const dispatch = useDispatch();
     
     useEffect(()=>{
-        const existingUser = JSON.parse(localStorage.getItem('user'));
+        const existingUser = fetchUserFromCookie();
         if(existingUser){
             setUserName(existingUser.firstname);
         }

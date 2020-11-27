@@ -2,10 +2,18 @@ import React, { useState, useEffect } from 'react';
 
 import StyledLogin from './styles/styledLogin';
 import { Link, Redirect } from 'react-router-dom';
-import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { USER_LOGIN } from '../../constants/action.constants';
+import { HTTP_POST } from '../helpers/axios.config';
+import { fetchUserFromCookie, setCookie } from '../helpers/cookie.operations';
 
+
+const LoginUser = async(endpoint, data) => {
+    let response = await HTTP_POST(endpoint, data);
+    return response;
+
+    
+}
 const Login = () => {
     let _password = '';
     let _email = '';
@@ -19,9 +27,7 @@ const Login = () => {
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        const existingUser = JSON.parse(localStorage.getItem('user'));
-
-        if(existingUser){
+        if(fetchUserFromCookie()){
             setRedirect('/user');
         }
     },[]);
@@ -74,18 +80,16 @@ const Login = () => {
 
         setFormError('');
         
-        axios.post(
-            'http://192.168.29.173:8080/signin',
-            { "emailId": _email,
-            "password": _password }
-
-        ).then(response => {
-            
+        LoginUser('signin', { "emailId": _email, "password": _password })
+        .then(response => {
+            console.log(response)
             dispatch({
                 type: USER_LOGIN,
                 payload: response.data
             });
-            localStorage.setItem("user", JSON.stringify(response.data));
+            setCookie('user', JSON.stringify(response.data));
+            //why are we using stringy here? why cant we set it directly?
+
             setRedirect('/user');
         }).catch(err => {
             if(err.message.includes('404')){

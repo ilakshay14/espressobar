@@ -1,31 +1,16 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, Suspense } from 'react';
 import StyledMenu from './styles/styledMenu';
 import { Route, Link, Switch } from 'react-router-dom'
-import axios from 'axios';
 import Anchor from '../../common/anchor';
 import Footer from '../footer/footer';
 
 const Cold = React.lazy(() => import('./basicCold'));
 const Hot = React.lazy(() => import('./basicHot'));
 const Mix = React.lazy(() => import('./mixItUp'));
-// import Mix from './mixItUp';
-// import Sides from './sides';
 const Sides = React.lazy(() => import('./sides'));
 import Navbar from '../nav/nav';
-import { UPDATE_CART } from '../../constants/action.constants';
-import { connect } from 'react-redux';
 
-const mapDispatchToProps = (dispatch) => {
-    return({
-        updateCart: (id) => { dispatch({
-            type: UPDATE_CART,
-            payload: id
-        })}
-    })
-};
-
-
-const MenuComponent = ({updateCart}) => {
+const Menu = ({}) => {
 
     const [showMenu, setDisplayState] = useState(false);
 
@@ -118,7 +103,5 @@ const MenuComponent = ({updateCart}) => {
         </StyledMenu>
     );
 }
-
-const Menu = connect(null, mapDispatchToProps)(MenuComponent)
 
 export default Menu;

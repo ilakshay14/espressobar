@@ -2,9 +2,6 @@ import React from 'react';
 import StyledAppNav from './styles/styledAppNav';
 import { Link } from 'react-router-dom'
 
-
-
-
 const AppNavbar = () => {
     return (
         <StyledAppNav>

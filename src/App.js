@@ -9,7 +9,7 @@ import Navbar from './components/nav/nav';
 import Coffeehouse from './components/coffeehouse/coffeehouse';
 import Coffee from './components/coffee/coffee';
 import { HTTP_GET, HTTP_POST } from './components/helpers/axios.config';
-import { fetchUserFromCookie } from './components/helpers/fetchFromCookie';
+import { fetchUserFromCookie } from './components/helpers/cookie.operations';
 import Axios from 'axios';
 import Loader from './components/Loader/loader';
 

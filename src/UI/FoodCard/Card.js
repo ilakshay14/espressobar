@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Image from '../../common/image';
 import axios from 'axios';
+import { fetchUserFromCookie } from '../../components/helpers/cookie.operations';
+import { HTTP_POST } from '../../components/helpers/axios.config';
 
 const Card = ({ id, src, caption, classname, buttonStyle, price, bookmark, updateCart, cart }) => {
 
@@ -13,34 +15,38 @@ const Card = ({ id, src, caption, classname, buttonStyle, price, bookmark, updat
     }, [id]);
 
     const addToCart = () => {
-        let user = JSON.parse(localStorage.getItem('user'));
-
-        axios.post('http://192.168.29.173:8080/updatecart',
-            {
-                "itemid": id,
-                "_id": user.id
-            }).then(response => {
+        let user = fetchUserFromCookie();
+        //TODO: can we move this user in state?
+        
+        const helper = async(data) => {
+            HTTP_POST('updatecart', data)
+            .then(response => {
                 if (response.status === 200) {
                     changeIcon(true);
                     updateCart(response.data.cart);
                 }
             })
             .catch(error => console.log(error));
+        }
+
+        helper({ "itemid": id, "_id": user.id });
     }
 
     const removeFromCart = () => {
-        let user = JSON.parse(localStorage.getItem('user'));
-        axios.post('http://192.168.29.173:8080/removeitem',
-            {
-                "itemid": id,
-                "_id": user.id
-            }).then(response => {
+        let user = fetchUserFromCookie();
+
+        const helper = async(data) => {
+            HTTP_POST('removeitem', data)
+            .then(response => {
                 if (response.status === 200) {
-                    changeIcon(false);
+                    changeIcon(true);
                     updateCart(response.data.cart);
                 }
             })
             .catch(error => console.log(error));
+        }
+
+        helper({ "itemid": id, "_id": user.id });
     }
 
     return (
@@ -63,7 +69,7 @@ const Card = ({ id, src, caption, classname, buttonStyle, price, bookmark, updat
                 </div>
                 <div>
                     
-                </div>
+                </div>v
                 <div>
                     
                 </div>

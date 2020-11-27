@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import StyledSignUp from './styles/styledSignUp';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { HTTP_POST } from '../helpers/axios.config';
 
+const SignUpHelper = async(endpoint, data) => {
+    let response = await HTTP_POST(endpoint, data);
+    return response;
+}
 
 const SignUp = () => {
     let _password = '';
@@ -96,10 +101,8 @@ const SignUp = () => {
             password: _password
         }
 
-        axios.post(
-            'http://localhost:8080/signup',
-            { ...user }
-        ).then(response => console.log(`response = ${JSON.stringify(response)}`))
+        SignUpHelper('signup', { ...user })
+        .then(response => console.log(`response = ${JSON.stringify(response)}`))
         .catch(err => console.log(`err = ${JSON.stringify(err)}`));
         //TODO Redirect user to login page
     }
