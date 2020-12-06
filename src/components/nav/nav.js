@@ -24,7 +24,7 @@ const Navbar = () => {
     return (
         <StyledNav>
             <div className="navbrand">
-                <a href="#home"><p>ES<br />PR</p></a>
+                <a href="/"><p>ES<br />PR</p></a>
             </div>
             <div className="navmenu">
                 <ul>

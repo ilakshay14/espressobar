@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const BASE_URL = 'http://192.168.29.173:8080/';
+export const BASE_URL = 'http://localhost:8080/';
 
 export const HTTP_POST = (endpoint, data) => {
     return axios.post(BASE_URL + endpoint, data)

@@ -10,7 +10,6 @@ import Coffeehouse from './components/coffeehouse/coffeehouse';
 import Coffee from './components/coffee/coffee';
 import { HTTP_GET, HTTP_POST } from './components/helpers/axios.config';
 import { fetchUserFromCookie } from './components/helpers/cookie.operations';
-import Axios from 'axios';
 import Loader from './components/Loader/loader';
 
 const Menu = React.lazy(() => import('./components/menu/menu'));
@@ -20,8 +19,11 @@ const Dashboard = React.lazy(() => import('./components/user/dashboard'));
 const MessageScreen = React.lazy(() => import('./components/helpers/message.screen'));
 const ErrorScreen = React.lazy(() => import('./components/helpers/404.screen'));
 
+import PrivateRoute from './hoc/privateRoutes';
+
 const fetchMenu = async () => {
     let response = await HTTP_GET('menu');
+    //console.log(response);
     return response.data.menu;
 }
 
@@ -64,24 +66,15 @@ const App = () => {
         });
 
         fetchUserItems(dispatch);
-
-
-
-
     }, []);
 
 
     return (
         <div>
-            {/* <Redirect from="/" to="/signup" /> */}
-
             <Switch>
 
                 <Route path='/' exact render={() => (
                     <>
-                        {/* <MessageScreen/> */}
-                        {/* <ErrorScreen/> */}
-                        {/* <Loader/> */}
                         <Navbar />
                         <StyledSection>
                             <Header />
@@ -93,47 +86,27 @@ const App = () => {
                             <Coffee />
                         </StyledSection>
                     </>
-
-                    // <Dashboard/>
                 )} />
 
-                <Route path='/menu' render={() => (
-                    <Suspense fallback={<Loader/>}>
-                        <Menu />
-                    </Suspense>
-                )} />
 
-                <Route path='/login' render={() => (
-                    <Suspense fallback={<Loader/>}>
-                        <Navbar />
-                        <Login />
-                    </Suspense>
-                )} />
-
-                <Route path='/signup' render={() => (
-                    <Suspense fallback={<Loader/>}>
-                        <Navbar />
-                        <SignUp />
-                    </Suspense>
-                )} />
-
-                <Route path='/user' render={() => (
-                    <Suspense fallback={<Loader/>}>
-                        <Dashboard />
-                    </Suspense>
-                )} />
-
-                <Route path='/newuser' render={() => (
-                    <Suspense fallback={<Loader/>}>
-                        <ErrorScreen />
-                    </Suspense>
-                )} />
-
-                <Route path='/error' render={() => (
-                    <Suspense fallback={<h1>loading...</h1>}>
-                        <MessageScreen />
-                    </Suspense>
-                )} />
+                <Suspense fallback={<Loader/>}>
+                    <Route path="/menu" component={Menu}/>
+                    <Route path="/login" render={()=>(
+                        <>
+                            <Navbar />
+                            <Login />
+                        </>
+                    )}/>
+                    <Route path="/signup" render={() => (
+                        <>
+                            <Navbar />
+                            <SignUp />
+                        </>
+                    )}/>
+                    <Route path="/newuser" component={ErrorScreen}/>
+                    <Route path="/error" component={MessageScreen}/>
+                    <PrivateRoute path="/user" component={Dashboard}/>
+                </Suspense>
 
             </Switch>
         </div>

@@ -6,7 +6,7 @@ const AppNavbar = () => {
     return (
         <StyledAppNav>
             <div className="navbrand">
-                <a href="#home"><p>ES<br />PR</p></a>
+                <a href="/"><p>ES<br />PR</p></a>
             </div>
             <div className="navmenu">
                 <ul>
