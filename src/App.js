@@ -30,14 +30,6 @@ const fetchMenu = async () => {
 const fetchUserItems = async (dispatch) => {
     const existingUser = fetchUserFromCookie();
     if (existingUser) {
-        // Axios.post('http://localhost:8080/getuseritems',
-        //     { _id: existingUser.id },
-        //     {
-        //         headers: {
-        //             "x-access-token": existingUser.accessToken
-        //         }
-        //     }
-        // )
         await HTTP_POST('getuseritems', { _id: existingUser.id})
         .then(response => {
             dispatch({
